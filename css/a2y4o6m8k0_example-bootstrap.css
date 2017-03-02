@@ -1,0 +1,103 @@
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    border: 2px solid red;
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    text-align: right;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-top: 7px;
+    width: 33.3333%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-block;
+    font-weight: 700;
+}
+
+input,select {
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    margin: 0;
+    margin-left: 15px;
+}
+
+select {
+    margin-bottom: 10px;
+}
+
+.positionNumberDiv {
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.positionExpDateDiv {
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.positionCvvDiv {
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.numberDiv {
+    height: 34px;
+}
+
+.expDateDiv {
+    height: 64px;
+}
+
+.cvvDiv {
+    height: 34px;
+}
+
+#expDividerText {
+    display: none;
+}
+
+.error {
+    color: #a94442;
+}
+
+.error input {
+    border-color: #a94442;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+option {
+    color: #999;
+    opacity: 1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input::-moz-placeholder {
+    color: #999;
+    opacity: 1;
+}
