@@ -43,12 +43,39 @@
       <div class="one-half column" style="margin-top: 25%">
         <form>
           PAN:<br>
-          <input type="text" name="firstname"><br>
-           Expiration Date:<br>
-          <input type="text" name="lastname"><br> 
-          CVC:
-          <br>
-          <input type="text" name="lastname">
+          <input type="text" name="pan" pattern="[0-9]{13,16}" maxlength="16" placeholder="Credit Card Number" ><br> 
+          Expiration Date:<br>
+          <input type="text" list="expMonth" pattern="[0-9]{2}"size="3" name="expMonth" maxlength="2" placeholder="01" >
+          <datalist id="expMonth">
+            <option value="01">Jan</option>
+            <option value="02">Feb</option>
+            <option value="03">Mar</option>
+            <option value="04">Apr</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option value="07">Jul</option>
+            <option value="08">Aug</option>
+            <option value="09">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+          </datalist> /
+          <input type="text" list="expYear"  pattern="[0-9]{2}" maxlength="2" size="3" name="expYear" placeholder="17" >
+          <datalist id="expYear">
+            <option value="17">2017</option>
+            <option value="18">2018</option>
+            <option value="19">2019</option>
+            <option value="20">2020</option>
+            <option value="21">2021</option>
+            <option value="22">2022</option>
+            <option value="23">2023</option>
+            <option value="24">2024</option>
+            <option value="25">2025</option>
+            <option value="26">2026</option>
+            <option value="27">2027</option>
+          </datalist>
+          <br> CVC:<br>
+          <input type="text" pattern="[0-9]{3,4}" maxlength="4" size="4" name="cvc" placeholder="CVC">
         </form>
         <input class="button-primary" type="submit" value="submit input">
       </div>
