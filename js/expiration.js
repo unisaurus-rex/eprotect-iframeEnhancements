@@ -9,14 +9,14 @@
 function validateExpirationDate(month, year){
 	//get current date
 	var today = new Date();
-	var currentMonth = today.getMonth() + 1; //month starts index at zero
+	var currentMonth = today.getMonth() + 1; //month begins index at 0
 	var currentYear = today.getFullYear(); 
 
-	//check year if year has passed
+	//if year has passed
 	if (year < currentYear){
 		return false;
 	}
-	//check if month has passed
+	//if month has passed in current year
 	else if( month < currentMonth && year == currentYear ){
 		return false;
 	}else return true;
