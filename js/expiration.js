@@ -1,5 +1,6 @@
 /**
  * Compare input with server month and year to see if the expiration date has passed
+ * Current year and current month are considered valid (caution some cards expire at the beginning of the month)
  * @function checkExpirationDate
  * @param {String} month - xx format
  * @param {String} year - xxxx format

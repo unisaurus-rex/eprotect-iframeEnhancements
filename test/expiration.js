@@ -9,6 +9,7 @@ var pastMonth = today.getMonth();
 var pastYear = today.getFullYear() -1;
 
 describe('checkExpirationdate should', function() {
+
   it('return true given the current month and year', function() {
     //expect(foo).to.equal('bar');
     var test = validateExpirationDate(validMonth, validYear);
