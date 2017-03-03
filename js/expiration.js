@@ -5,7 +5,7 @@
  * @param {String} year - xxxx format
  * @returns {Boolean}
  */
-function checkExpirationDate(month, year){
+function validateExpirationDate(month, year){
 	//get current date
 	var today = new Date();
 	var currentMonth = today.getMonth() + 1; //month starts index at zero
@@ -21,4 +21,4 @@ function checkExpirationDate(month, year){
 	}else return true;
 }
 
-window.checkExpirationDate = checkExpirationDate;
+window.validateExpirationDate = validateExpirationDate;
