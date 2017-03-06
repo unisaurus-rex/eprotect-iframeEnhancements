@@ -1,7 +1,7 @@
 /*
-* Skeleton V2.0.4
-* Copyright 2014, Dave Gamache
-* www.getskeleton.com
+* Skeleton V2.0.4 -- Modified
+* Copyright 2014, Dave Gamache & 2017, Team Unisaurus Rex
+* www.getskeleton.com  &  https://github.com/unisaurus-rex
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
 * 12/29/2014
@@ -283,6 +283,8 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal; }
+input:invalid {
+    border-color: red; }
 
 
 /* Lists
