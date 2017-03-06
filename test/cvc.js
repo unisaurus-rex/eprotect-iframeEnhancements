@@ -1,6 +1,6 @@
 var expect = chai.expect;
 
-describe('detectCardType should', function() {
+describe('detectCardType', function() {
   var cards = {
     '8800000000000000': 'unionpay',
 
@@ -67,7 +67,7 @@ describe('detectCardType should', function() {
 
 
 
-describe('getCvcLengthByCardType should', function() {
+describe('getCvcLengthByCardType', function() {
   var types = {
     'unionpay': 4,
     'electron': 4,
