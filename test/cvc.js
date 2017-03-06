@@ -88,7 +88,7 @@ describe('getCvcLengthByCardType', function() {
   });
 });
 
-describe('cvcNumericCheck should', function() {
+describe('cvcNumericCheck', function() {
   var cvcs = {
     '123': true,
     '23!': false,
@@ -103,13 +103,13 @@ describe('cvcNumericCheck should', function() {
   };
 
   Object.keys(cvcs).forEach(function(cvc) {
-    it('detect ' + cvc + ' as ' + cvcs[cvc], function() {
+    it('should detect ' + cvc + ' as ' + cvcs[cvc], function() {
       cvcNumericCheck(cvc).should.equal(cvcs[cvc]);
     });
   });
 });
 
-describe('overLength should return ', function() {
+describe('overLength', function() {
   var overlengthTest = {
     '123454': {length: 5, result: true},
     '23!': {length: 3, result: false},
@@ -117,13 +117,13 @@ describe('overLength should return ', function() {
   };
 
   Object.keys(overlengthTest).forEach(function(string) {
-    it( overlengthTest[string].result + " given " +string + ' and length ' + overlengthTest[string].length, function() {
+    it( "should return " + overlengthTest[string].result + " given " +string + ' and length ' + overlengthTest[string].length, function() {
       overLength(string, overlengthTest[string].length).should.equal(overlengthTest[string].result);
     });
   });
 });
 
-describe('underLength should return ', function() {
+describe('underLength', function() {
   var underlengthTest = {
     '123454': {length: 5, result: false},
     '23!': {length: 3, result: false},
@@ -131,13 +131,13 @@ describe('underLength should return ', function() {
   };
 
   Object.keys(underlengthTest).forEach(function(string) {
-    it( underlengthTest[string].result + " given string " +string + ' and length ' + underlengthTest[string].length, function() {
+    it( "should return " + underlengthTest[string].result + " given string " +string + ' and length ' + underlengthTest[string].length, function() {
       underLength(string, underlengthTest[string].length).should.equal(underlengthTest[string].result);
     });
   });
 });
 
-describe('cvcUnderLength should return ', function() {
+describe('cvcUnderLength', function() {
   var cvcUnderTest = {
     '12': {pan: 4916338506082832, card: "visa", result: true},
     '1223': {pan: 4916338506082832, card: "visa", result: false},
@@ -150,7 +150,7 @@ describe('cvcUnderLength should return ', function() {
   };
 
   Object.keys(cvcUnderTest).forEach(function(string) {
-    it( cvcUnderTest[string].result + " given " +string + ' with card ' + cvcUnderTest[string].card 
+    it( "should return " + cvcUnderTest[string].result + " given " +string + ' with card ' + cvcUnderTest[string].card 
       + " (cvc should be length " + getCvcLengthByCardType( cvcUnderTest[string].card ) + ")", 
       function() {
         cvcUnderLength(cvcUnderTest[string].pan, string).should.equal(cvcUnderTest[string].result);
@@ -159,7 +159,7 @@ describe('cvcUnderLength should return ', function() {
   });
 });
 
-describe('cvcOverLength should return ', function() {
+describe('cvcOverLength', function() {
   var cvcOverTest = {
     '1223': {pan: 4916338506082832, card: "visa", result: true},
     '122': {pan: 4916338506082832, card: "visa", result: false},
@@ -172,7 +172,7 @@ describe('cvcOverLength should return ', function() {
   };
 
   Object.keys(cvcOverTest).forEach(function(string) {
-    it( cvcOverTest[string].result + " given " +string + ' with card ' + cvcOverTest[string].card 
+    it( "should return "+ cvcOverTest[string].result + " given " +string + ' with card ' + cvcOverTest[string].card 
       + " (cvc should be length " + getCvcLengthByCardType( cvcOverTest[string].card ) + ")", 
       function() {
         cvcOverLength(cvcOverTest[string].pan, string).should.equal(cvcOverTest[string].result);

@@ -8,27 +8,27 @@ var validYear = today.getFullYear();
 var pastMonth = today.getMonth();
 var pastYear = today.getFullYear() -1;
 
-describe('validExpirationDate should', function() {
+describe('validExpirationDate', function() {
 
-  it('return true given the current month and year', function() {
+  it('should return true given the current month and year', function() {
     //expect(foo).to.equal('bar');
     var testOne = validExpirationDate(validMonth, validYear);
     expect(testOne).to.equal(true);
   });
 
-  it('return false given a valid month and invalid year', function() {
+  it('should return false given a valid month and invalid year', function() {
   	//expect(foo).to.equal('bar');
   	var testTwo = validExpirationDate(validMonth, pastYear);
   	expect(testTwo).to.equal(false);
 	});
 
-  it('return false given an invalid month and valid year', function() {
+  it('should return false given an invalid month and valid year', function() {
   	//expect(foo).to.equal('bar');
   	var testThree = validExpirationDate(pastMonth, validYear);
   	expect(testThree).to.equal(false);
 	});
 
-  it('return false given an invalid month and invalid year', function() {
+  it('should return false given an invalid month and invalid year', function() {
   	//expect(foo).to.equal('bar');
   	var testFour = validExpirationDate(pastMonth, pastYear);
   	expect(testFour).to.equal(false);
