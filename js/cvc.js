@@ -11,58 +11,64 @@ function cvcNumericCheck(cvc){
 
 /**
  * Check if cvc length is too short
- * @function cvcShortLengthCheck
+ * @function cvcUnderlength
  * @param {String} cvc
  * @returns {Boolean}
  */
-function cvcShortLengthCheck(pan, cvc){
+function cvcUnderLength(pan, cvc){
 	var type = detectCardType(pan);
-	var length = getCvcLength(type);
-	return stringShortValidityCheck(cvc, length);
-	//if (cvc.length < length)
-		//return false;
-	//else
-		//return true;
+	var length = getCvcLengthByCardType(type);
+	return underLength(cvc, length);
 }
 
 /**
  * Check if cvc length is too long
- * @function cvcLongLengthCheck
+ * @function cvcOverlength
  * @param {String} cvc
  * @returns {Boolean}
  */
-function cvcLongLengthCheck(pan, cvc){
+function cvcOverLength(pan, cvc){
 	var type = detectCardType(pan);
-	var length = getCvcLength(type);
-	return stringLongValidityCheck(cvc, length);
-	//if (cvc.length > length)
-		//return false;
-	//else
-		//return true;
+	var length = getCvcLengthByCardType(type);
+	return overLength(cvc, length);
 }
 
-function stringLongValidityCheck(str, length){
+/**
+ * Check if string length is too long
+ * @function overLength
+ * @param {String} str
+ * @param {Number} length
+ * @returns {Boolean}
+ */
+function overLength(str, length){
 	if (str.length > length)
-		return false;
-	else 
 		return true;
+	else 
+		return false;
 }
 
-function stringShortValidityCheck(str, length){
-	if (str.length < legnth)
-		return false;
-	else
+/**
+ * Check if string length is too short
+ * @function underLength
+ * @param {String} str
+ * @param {Number} length
+ * @returns {Boolean}
+ */
+function underLength(str, length){
+	if (str.length < length)
 		return true;
+	else
+		return false;
 }
 
 
 /**
  * Return length of CVC given a card type
- * @function getCvcLength
+ * @function getCvcLengthByCardType
  * @param {String} type
  * @returns {Number}
  */
-function getCvcLength(type){
+function getCvcLengthByCardType(type){
 	var map = {
 		visa: 3,
 		mastercard: 3,
@@ -117,8 +123,3 @@ function cvcLengthAndNumericCheck(cvc, length){
 	var isnum = /^[0-9]+$/.test(cvc);
 	return isnum;
 }
-
-
-window.cvcNumericCheck =  cvcNumericCheck;
-window.cvcLongLengthCheck = cvcLongLengthCheck;
-window.cvcShortLengthCheck = cvcShortLengthCheck;

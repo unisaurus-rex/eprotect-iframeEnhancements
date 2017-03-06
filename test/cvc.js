@@ -67,7 +67,7 @@ describe('detectCardType should', function() {
 
 
 
-describe('getCvcLength should', function() {
+describe('getCvcLengthByCardType should', function() {
   var types = {
     'unionpay': 4,
     'electron': 4,
@@ -83,7 +83,7 @@ describe('getCvcLength should', function() {
 
   Object.keys(types).forEach(function(type) {
     it('should detect cvc length ' + type + ' as ' + types[type], function() {
-      getCvcLength(type).should.equal(types[type]);
+      getCvcLengthByCardType(type).should.equal(types[type]);
     });
   });
 });
@@ -109,17 +109,74 @@ describe('cvcNumericCheck should', function() {
   });
 });
 
+describe('overLength should return ', function() {
+  var overlengthTest = {
+    '123454': {length: 5, result: true},
+    '23!': {length: 3, result: false},
+    '@233': {length: 3, result: true}
+  };
 
-describe('stringLongValidityCheck should return ', function() {
-  var strings = {
+  Object.keys(overlengthTest).forEach(function(string) {
+    it( overlengthTest[string].result + " given " +string + ' and length ' + overlengthTest[string].length, function() {
+      overLength(string, overlengthTest[string].length).should.equal(overlengthTest[string].result);
+    });
+  });
+});
+
+describe('underLength should return ', function() {
+  var underlengthTest = {
     '123454': {length: 5, result: false},
-    '23!': {length: 3, result: true},
+    '23!': {length: 3, result: false},
     '@233': {length: 3, result: false}
   };
 
-  Object.keys(strings).forEach(function(string) {
-    it( strings[string].result + " given " +string + ' compared with length ' + strings[string].length, function() {
-      stringLongValidityCheck(string, strings[string].length).should.equal(strings[string].result);
+  Object.keys(underlengthTest).forEach(function(string) {
+    it( underlengthTest[string].result + " given string " +string + ' and length ' + underlengthTest[string].length, function() {
+      underLength(string, underlengthTest[string].length).should.equal(underlengthTest[string].result);
     });
+  });
+});
+
+describe('cvcUnderLength should return ', function() {
+  var cvcUnderTest = {
+    '12': {pan: 4916338506082832, card: "visa", result: true},
+    '1223': {pan: 4916338506082832, card: "visa", result: false},
+    '233': {pan: 5280934283171080, card: "mastercard", result: false},
+    '23': {pan: 5280934283171080, card: "mastercard", result: true},
+    '1233': {pan: 345936346788903, card: "amex", result: false},
+    '123': {pan: 345936346788903, card: "amex", result: true},
+    '133': {pan: 6011894492395579, card: "discover", result: false},
+    '13': {pan: 6011894492395579, card: "discover", result: true}
+  };
+
+  Object.keys(cvcUnderTest).forEach(function(string) {
+    it( cvcUnderTest[string].result + " given " +string + ' with card ' + cvcUnderTest[string].card 
+      + " (cvc should be length " + getCvcLengthByCardType( cvcUnderTest[string].card ) + ")", 
+      function() {
+        cvcUnderLength(cvcUnderTest[string].pan, string).should.equal(cvcUnderTest[string].result);
+      }
+    );
+  });
+});
+
+describe('cvcOverLength should return ', function() {
+  var cvcOverTest = {
+    '1223': {pan: 4916338506082832, card: "visa", result: true},
+    '122': {pan: 4916338506082832, card: "visa", result: false},
+    '233': {pan: 5280934283171080, card: "mastercard", result: false},
+    '2334': {pan: 5280934283171080, card: "mastercard", result: true},
+    '1233': {pan: 345936346788903, card: "amex", result: false},
+    '12356': {pan: 345936346788903, card: "amex", result: true},
+    '133': {pan: 6011894492395579, card: "discover", result: false},
+    '1365': {pan: 6011894492395579, card: "discover", result: true}
+  };
+
+  Object.keys(cvcOverTest).forEach(function(string) {
+    it( cvcOverTest[string].result + " given " +string + ' with card ' + cvcOverTest[string].card 
+      + " (cvc should be length " + getCvcLengthByCardType( cvcOverTest[string].card ) + ")", 
+      function() {
+        cvcOverLength(cvcOverTest[string].pan, string).should.equal(cvcOverTest[string].result);
+      }
+    );
   });
 });
