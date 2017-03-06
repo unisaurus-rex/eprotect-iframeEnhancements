@@ -1,12 +1,12 @@
 /**
  * Compare input with server month and year to see if the expiration date has passed
  * Current year and current month are considered valid (Caution: some cards expire at the beginning of the month)
- * @function checkExpirationDate
+ * @function validExpirationDate
  * @param {String} month - xx format
  * @param {String} year - xxxx format
  * @returns {Boolean}
  */
-function validateExpirationDate(month, year){
+function validExpirationDate(month, year){
 	//get current date
 	var today = new Date();
 	var currentMonth = today.getMonth() + 1; //month begins index at 0
@@ -21,5 +21,3 @@ function validateExpirationDate(month, year){
 		return false;
 	}else return true;
 }
-
-window.validateExpirationDate = validateExpirationDate;
