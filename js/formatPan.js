@@ -14,7 +14,8 @@ function detectCardTypePartial(pan) {
     //visa: 4
     visa: /^4/,
     //mastercard 50 - 55 OR 51-55?
-    mastercard: /^5[0-5]/,
+    mastercard: /^5[1-5]/,
+    mastercard: /^222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720/,
     //34, 37
     amex: /^3[47]/,
     //discover: 6011, 622126-622925, 644-649, 65
@@ -31,7 +32,7 @@ function detectCardTypePartial(pan) {
 
 function formatPan( pan ){
   var type;
-  if ( (pan.length >= 2 || type == undefined) ){
+  if ( (pan.length < 5 || type == undefined) ){
     type = detectCardTypePartial(pan);
   }
 
