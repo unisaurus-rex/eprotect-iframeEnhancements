@@ -1,4 +1,14 @@
 /**
+ * @file expiration-validation.js
+ * pure validation function@s for the expiration Input field
+ */
+
+ /*
+ * Validations:
+ * 1) Check if expiration date has passed
+ */
+
+/**
  * Compare input with server month and year to see if the expiration date has passed
  * Current year and current month are considered valid (Caution: some cards expire at the beginning of the month)
  * @function validExpirationDate

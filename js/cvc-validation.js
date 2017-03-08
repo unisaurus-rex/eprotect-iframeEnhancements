@@ -1,4 +1,16 @@
 /**
+ * @file cvc-validation-js
+ * pure validation function@s for the CVC Input field
+ */
+
+/*
+ * Validations:
+ * 1) CVC under length
+ * 2) CVC over length
+ * 3) CVC not numeric
+ */
+
+/**
  * Check CVC for non numberic characters
  * @function CvcNumericCheck
  * @param {String} cvc
