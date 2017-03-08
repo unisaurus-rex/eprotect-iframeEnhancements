@@ -1,6 +1,6 @@
 /**
  * @file pan-validation-js
- * pure validation function@s for the PAN Input field
+ * pure validation functions for the PAN Input field
  */
 
 
