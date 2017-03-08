@@ -12,7 +12,7 @@
 
 /**
  * Check CVC for non numberic characters
- * @function CvcNumericCheck
+ * @function cvcNumericCheck
  * @param {String} cvc
  * @returns {Boolean}
  */
