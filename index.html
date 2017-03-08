@@ -21,9 +21,11 @@
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
 
@@ -43,12 +45,14 @@
         <h4>iFrame Enhancements Basic Page</h4>
         <p>This index.html page is a placeholder with the CSS, font and favicon. It also demo's the iframe enhancements for the eprotect form using a light  
           modified responsive stylesheet called Skeleton and a browser normalizing CSS. If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+      <i class="fa fa-cc-amex fa-lg" aria-hidden="true"></i>
+
       </div>
       <div class="one-half column" style="margin-top: 25%">
         <form>
-          PAN:<br>
+         <label for="accountnumber"> Card NUmber </label>
           <input type="text" id="accountnumber" name="pan" pattern="[0-9]{13,16}" maxlength="16" placeholder="Credit Card Number" data-format="+1 (ddd) ddd-dddd"><br> 
-          Expiration Date:<br>
+         <label for="expMonth">Card Expiration Date</label>
           <input type="text" id="expMonth" list="expMonth" pattern="[0-9]{2}"size="3" name="expMonth" maxlength="2" placeholder="01" >
           <datalist id="expMonth">
             <option value="01">Jan</option>
@@ -78,7 +82,7 @@
             <option value="26">2026</option>
             <option value="27">2027</option>
           </datalist>
-          <br> CVC:<br>
+         <label for="cvc">Security Code</label>
           <input type="text" id="cvc" pattern="[0-9]{3,4}" maxlength="4" size="4" name="cvc" placeholder="CVC">
         </form>
         <input class="button-primary" type="submit" value="submit input">
