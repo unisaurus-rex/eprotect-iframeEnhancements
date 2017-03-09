@@ -12,7 +12,7 @@
 
 /**
  * Check CVC for non numberic characters
- * @function CvcNumericCheck
+ * @function cvcNumericCheck
  * @param {String} cvc
  * @returns {Boolean}
  */
@@ -30,7 +30,7 @@ function cvcNumericCheck(cvc){
 function cvcUnderLength(pan, cvc){
 	var type = detectCardType(pan);
 	var length = getCvcLengthByCardType(type);
-	return underLength(cvc, length);
+	return underLength(cvc, Math.floor(length));
 }
 
 /**
@@ -42,7 +42,7 @@ function cvcUnderLength(pan, cvc){
 function cvcOverLength(pan, cvc){
 	var type = detectCardType(pan);
 	var length = getCvcLengthByCardType(type);
-	return overLength(cvc, length);
+	return overLength(cvc, Math.ceil(length));
 }
 
 /**
@@ -85,10 +85,15 @@ function getCvcLengthByCardType(type){
 		visa: 3,
 		mastercard: 3,
 		discover: 3,
-		amex: 4,	
+		amex: 3.5, //amex can be 3 or 4
+		maestro: 3,
+		forbrugsforeningen: 3,
+		dankort: 3,
+		diners: 3,
+		unionpay: 3,
+		jcb: 3
 	};
 	if (type in map){
-		console.log(map[type]);
 		return map[type];
 	}
 	else
@@ -99,7 +104,7 @@ function getCvcLengthByCardType(type){
  * Return card type from pan
  * @function detectCardType
  * @param {String} number 
- * @returns {Boolean}
+ * @returns {String}
  */
 function detectCardType(pan) {
   var re = {
