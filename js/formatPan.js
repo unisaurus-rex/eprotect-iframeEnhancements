@@ -41,6 +41,7 @@ function detectCardTypePartial(pan) {
   return undefined;
 }
 
+
 /**
  * Format PAN by adding spaces
  * If card type can not be detected no formatting will be added
@@ -50,52 +51,78 @@ function detectCardTypePartial(pan) {
  * @returns {String}
  */
 function formatPan( pan ){
-  var type;
-
-  //will not work if copy paste
-  //max of 4 numbers to detect card type
-  if ( (pan.length < 5) ){
-    type = detectCardTypePartial(pan);
-  }
+  var type = detectCardTypePartial(pan);
 
   if (type == "amex"){
-    /*xxxx xxxxxx xxxxx*/
-    return formatFourSixFive(pan);
+    return format4x6x5(pan);
   }
   else if (type == "visa" || type == "mastercard" || type == "discover" 
         || type == "jcb" || type == "dankort"){
-    /* xxxx xxxx xxxx xxxx*/
-    return formatFourFourFourFour(pan);
+    return format4x4x4x4(pan);
   }
   else
     return pan;
-
 }
+
 
 /**
  * Format PAN using "xxxx xxxxxx xxxxx" pattern
  * Function will not work if pan has been pasted
- * @function formatFourSixFive
+ * @function format4x6x5
  * @param {String} pan 
  * @returns {String}
  */
-function formatFourSixFive(pan){
-  if (pan.length % 4 == 0 || pan.length % 11 == 0 ){
-    return pan + ' ';
-  }else {return pan;}
+function format4x6x5(pan){
+
+  //start at index of first space
+  var i = 4;
+  //if i is at valid index
+  if (i <= pan.length){
+    //check if there is a space
+    if (pan.charAt(i) != ' '){
+      //if there is no space add one
+      pan = pan.slice( 0, i) + " " + pan.slice(i, pan.length);
+    }    
+  }
+
+  //go to index of second space
+  i = 11;
+  if (i <= pan.length){
+    if (pan.charAt(i) != ' '){
+      pan = pan.slice( 0, i) + " " + pan.slice(i, pan.length);
+    }    
+  }
+
+  return pan;
 }
 
 /**
  * Format PAN using "xxxx xxxx xxxx xxxx" pattern
  * Function will not work if pan has been pasted
- * @function formatFourFourFourFour
+ * @function format4x4x4x4
  * @param {String} pan 
  * @returns {String}
  */
-function formatFourFourFourFour(pan){
-  if (pan.length % 4 == 0 || pan.length % 9 == 0 || pan.length % 14 == 0){
-    return pan + ' ';
-  }else {return pan;}  
+function format4x4x4x4(pan){
+  //assume the string passed in has valid characters
+  
+  //start at index of first space
+  var i =4; 
+  
+  while( i <= pan.length && i < 15 ){
+    //check it i is at valid index
+    if( i <= pan.length){
+      //check if there is a space
+      if (pan.charAt(i) != ' '){
+        //if there is no space add one
+        pan = pan.slice( 0, i) + " " + pan.slice(i, pan.length)
+      }
+    }
+    //jump to location of next space
+    i = i+5;
+  }
+  //return formatted pan
+  return pan;
 }
 
 window.formatPan = formatPan;
