@@ -20,27 +20,36 @@ function iconSwitch() {
 
 	switch (cardvar) {
 		case 'amex':
-			icon.removeClass().addClass('fa fa-cc-amex');
+			icon.removeClass().addClass('fa fa-cc-amex fa-lg');
 			break;
 
 		case 'discover':
-			icon.removeClass().addClass('fa fa-cc-discover');
+			icon.removeClass().addClass('fa fa-cc-discover fa-lg');
 			break;
 
 		case 'mastercard':
-			icon.removeClass().addClass('fa fa-cc-mastercard');
+			icon.removeClass().addClass('fa fa-cc-mastercard fa-lg');
 			break;
 
 		case 'visa':
-			icon.removeClass().addClass('fa fa-cc-visa');
+			icon.removeClass().addClass('fa fa-cc-visa fa-lg');
 			break;
 
 		default:
-			icon.removeClass().addClass('fa fa-credit-card');
+			icon.removeClass().addClass('fa fa-credit-card fa-lg');
 			break;
 	}
 	return cardvar;
 };
+
+/**
+ * A function to change the inputs class valid to invalid
+ * @function blurTest
+ */
+
+
+
+
 
 /**
  * A simple DOM tester that logs the current state of certain variables

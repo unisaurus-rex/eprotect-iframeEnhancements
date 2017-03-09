@@ -283,8 +283,12 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal; }
-input:invalid {
+input:invalid,.invalid {
     border-color: red; }
+    input:valid,.valid {
+    border-color: green; }
+        input:novalid,.novalid {
+    border-color: purple; }
 
 
 /* Lists
