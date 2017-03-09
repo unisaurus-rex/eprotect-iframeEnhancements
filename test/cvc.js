@@ -78,7 +78,7 @@ describe('CVC Validation', function() {
       'visa': 3,
       'mastercard': 3,
       'discover': 3,
-      'amex': 4
+      'amex': 3.5
     };
 
     Object.keys(types).forEach(function(type) {
@@ -126,7 +126,7 @@ describe('CVC Validation', function() {
   describe('underLength', function() {
     var underlengthTest = {
       '123454': {length: 5, result: false},
-      '23!': {length: 3, result: false},
+      '23': {length: 3, result: true},
       '@233': {length: 3, result: false}
     };
 
@@ -144,7 +144,7 @@ describe('CVC Validation', function() {
       '233': {pan: 5280934283171080, card: "mastercard", result: false},
       '23': {pan: 5280934283171080, card: "mastercard", result: true},
       '1233': {pan: 345936346788903, card: "amex", result: false},
-      '123': {pan: 345936346788903, card: "amex", result: true},
+      '123': {pan: 345936346788903, card: "amex", result: false},
       '133': {pan: 6011894492395579, card: "discover", result: false},
       '13': {pan: 6011894492395579, card: "discover", result: true}
     };
