@@ -27,10 +27,10 @@ describe('PAN Validation', function() {
   });
 
   describe('panShort', function() {
-    var invalidInputs = ['1', '12', '123', '1234', '12345', '123456'];
-    var validInputs = ['1234567', '12345678', '123456789012345'];
+    var invalidInputs = ['1', '12', '123', '1234567890', '12345678901', '123456789012'];
+    var validInputs = ['1234567890123', '12345678901234', '123456789012345'];
 
-    it('returns true for inputs of length < 7', function() {
+    it('returns true for inputs of length < 13', function() {
       invalidInputs.forEach(function(input) {
         assert.isTrue(panShort(input), "Failed Input: " + input);
       });
@@ -39,6 +39,24 @@ describe('PAN Validation', function() {
     it('returns false otherwise', function() {
       validInputs.forEach(function(input) {
         assert.isFalse(panShort(input), "Failed Input: " + input);
+      });
+    });
+
+  });
+
+  describe('panLong', function() {
+    var invalidInputs = ['12345678901234567890', '123456789012345678901', '1234567890123456789012'];
+    var validInputs = ['1234567890123', '12345678901234', '123456789012345'];
+
+    it('returns true for inputs of length > 19', function() {
+      invalidInputs.forEach(function(input) {
+        assert.isTrue(panLong(input), "Failed Input: " + input);
+      });
+    });
+
+    it('returns false otherwise', function() {
+      validInputs.forEach(function(input) {
+        assert.isFalse(panLong(input), "Failed Input: " + input);
       });
     });
 
