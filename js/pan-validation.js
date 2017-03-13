@@ -25,7 +25,11 @@ var MAX_LENGTH = 19;
  * @function mod10 
  * @returns {Boolean} return true if the pan passes the mod10 check
  */
-function mod10(pan) {
+function isMod10(pan) {
+  // make sure pan isn't empty
+  if(pan.length == 0) {
+    return false;
+  }
   // split the pan so we can work with each digit
   var splitPan = pan.split('');
 

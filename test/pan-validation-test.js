@@ -9,19 +9,23 @@ var assert = chai.assert;
 
 describe('PAN Validation', function() {
 
-  describe('mod10', function() {
+  describe('isMod10', function() {
     var validInputs = ['79927398713','49927398716' ];
     var invalidInputs = ['7992739872', '49927398717'];
 
+    it('returns false if the pan has length zero', function() {
+      assert.isFalse(isMod10(''), "Failed on empty string");
+    });
+
     it('returns true if the pan passes the mod 10 check', function() {
       validInputs.forEach(function(input) {
-        assert.isTrue(mod10(input), "Failed Input: " + input);
+        assert.isTrue(isMod10(input), "Failed Input: " + input);
       });
     });
 
     it('returns false if the pan does not pass the mod 10 check', function() {
       invalidInputs.forEach(function(input) {
-        assert.isFalse(mod10(input), "Failed Input: " + input);
+        assert.isFalse(isMod10(input), "Failed Input: " + input);
       });
     });
   });
