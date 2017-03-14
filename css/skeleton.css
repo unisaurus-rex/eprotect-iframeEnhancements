@@ -1,10 +1,10 @@
 /*
-* Skeleton V2.0.4 -- Modified
-* Copyright 2014, Dave Gamache & 2017, Team Unisaurus Rex
+* Vantiv Skeleton V1 -- Based on Skeleton
+* Copyright 2017 -- Team Unisaurus Rex & Copyright 2014, Dave Gamache
 * www.getskeleton.com  &  https://github.com/unisaurus-rex
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
-* 12/29/2014
+* 3/14/2017
 */
 
 
@@ -14,11 +14,10 @@
 - Base Styles
 - Typography
 - Links
+- Images
 - Buttons
 - Forms
-- Lists
-- Code
-- Tables
+- Tooltip
 - Spacing
 - Utilities
 - Clearing
@@ -162,6 +161,14 @@ a {
 a:hover {
   color: #0FA0CE; }
 
+  /* Images
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */}
+
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -283,75 +290,79 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal; }
-input:invalid,.invalid {
+input[type="text"].invalid {
     border-color: red; }
-    input:valid,.valid {
+input[type="text"].valid {
     border-color: green; }
-        input[value=""]:valid {
-    border-color: purple; }
-.valid label:after {
+#accountNumberLabelText.valid:after,
+#expDateLabelText.valid:after,
+#cvvLabelText.valid:after {
+  font-family: FontAwesome;
+   content: "\f058";
+   color: green;
+   padding-left: 1em; }
+#accountNumberLabelText.invalid:after,
+#expDateLabelText.invalid:after,
+#cvvLabelText.invalid:after {
+  font-family: FontAwesome;
+   content: "\f057";
+   color: red;
+   padding-left: 1em; }
+label.valid:after {
    font-family: FontAwesome;
    content: "\f058";
    padding-left: 1em;
    color:green;
 }
-.invalid label:after {
+label.invalid:after {
    font-family: FontAwesome;
-   content: "\f058";
+   content: "\f057";
    padding-left: 1em;
    color:red;
-}     
+}
 
-
-/* Lists
+     
+/* Tooltip
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-ul {
-  list-style: circle inside; }
-ol {
-  list-style: decimal inside; }
-ol, ul {
-  padding-left: 0;
-  margin-top: 0; }
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin: 1.5rem 0 1.5rem 3rem;
-  font-size: 90%; }
-li {
-  margin-bottom: 1rem; }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
 
-/* Code
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-code {
-  padding: .2rem .5rem;
-  margin: 0 .2rem;
-  font-size: 90%;
-  white-space: nowrap;
-  background: #F1F1F1;
-  border: 1px solid #E1E1E1;
-  border-radius: 4px; }
-pre > code {
-  display: block;
-  padding: 1rem 1.5rem;
-  white-space: pre; }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
 
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
 
-/* Tables
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-th,
-td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #E1E1E1; }
-th:first-child,
-td:first-child {
-  padding-left: 0; }
-th:last-child,
-td:last-child {
-  padding-right: 0; }
-
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
 
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

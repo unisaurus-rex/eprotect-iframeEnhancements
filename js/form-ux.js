@@ -10,8 +10,17 @@
  */
 
 
-var cardvar;//a dummy value for testing
-$('#accountnumber').blur(iconSwitch); //On blur event listener that should be used on the input fields
+var cardvar = "";//a dummy value for testing
+var panValid = true;
+var monthValid = false;
+var yearValid = true;
+var cvcValid = true;
+$('#accountnumber').blur(panValidUi); //On blur event listener that should be used on the input fields
+$('#accountnumber').blur(iconSwitch);
+$('#expMonth').blur(monthValidUi); //On blur event listener run the UI
+$('#expYear').blur(yearValidUi); //On blur event listener run the UI
+$('#cvc').blur(cvcValidUi); //On blur event listener run the UI
+
 
 
 function iconSwitch() {
@@ -42,6 +51,56 @@ function iconSwitch() {
 	return cardvar;
 };
 
+function panValidUi() {
+	var elements = $('#accountnumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
+
+	if (panValid == true) {
+		elements.removeClass().addClass('valid')
+	}
+	else {
+		elements.removeClass().addClass('invalid')
+	}
+};
+
+function monthValidUi() {
+	var elements = $('#expMonth,#expMonthLabelBefore,#expMonthLabelAfter,#expDateLabelText')
+
+	if (monthValid == true) {
+		elements.removeClass().addClass('valid')
+	}
+	else {
+		elements.removeClass().addClass('invalid')
+	}
+	if (monthValid == false || yearValid == false) {
+		$('#expDateLabelText').removeClass().addClass('invalid')
+	}
+};
+
+function yearValidUi() {
+	var elements = $('#expYear,#expYearLabelBefore,#expYearLabelAfter,#expDateLabelText')
+
+	if (yearValid == true) {
+		elements.removeClass().addClass('valid')
+	}
+	else {
+		elements.removeClass().addClass('invalid')
+	}
+	if (monthValid == false || yearValid == false) {
+		$('#expDateLabelText').removeClass().addClass('invalid')
+	}
+};
+
+function cvcValidUi() {
+	var elements = $('#cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
+
+	if (cvcValid == true) {
+		elements.removeClass().addClass('valid')
+	}
+	else {
+		elements.removeClass().addClass('invalid')
+	}
+};
+
 /**
  * A function to change the inputs class valid to invalid
  * @function blurTest
@@ -56,7 +115,7 @@ function iconSwitch() {
  * @function blurTest
  */
 
-function blurTest () {
+function blurTest() {
 	console.log(cardvar);
 }
 
