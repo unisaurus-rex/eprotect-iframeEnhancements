@@ -35,7 +35,7 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
-.column,
+.column, .numberDiv, .expDateDiv, .cvcDiv,
 .columns {
   width: 100%;
   float: left;
@@ -52,10 +52,10 @@
 @media (min-width: 550px) {
   .container {
     width: 80%; }
-  .column,
+.column, .numberDiv, .expDateDiv, .cvcDiv,
   .columns {
     margin-left: 4%; }
-  .column:first-child,
+  .column:first-child, .numberDiv:first-child, .expDateDiv:first-child, .cvcDiv:first-child,
   .columns:first-child {
     margin-left: 0; }
 
@@ -76,7 +76,7 @@
   .one-third.column               { width: 30.6666666667%; }
   .two-thirds.column              { width: 65.3333333333%; }
 
-  .one-half.column                { width: 48%; }
+  .one-half.column                 { width: 48%; }
 
   /* Offsets */
   .offset-by-one.column,
@@ -287,8 +287,20 @@ input:invalid,.invalid {
     border-color: red; }
     input:valid,.valid {
     border-color: green; }
-        input:novalid,.novalid {
+        input[value=""]:valid {
     border-color: purple; }
+.valid label:after {
+   font-family: FontAwesome;
+   content: "\f058";
+   padding-left: 1em;
+   color:green;
+}
+.invalid label:after {
+   font-family: FontAwesome;
+   content: "\f058";
+   padding-left: 1em;
+   color:red;
+}     
 
 
 /* Lists
@@ -390,9 +402,7 @@ hr {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Self Clearing Goodness */
-.container:after,
-.row:after,
-.u-cf {
+.container:after,.row:after,.positionNumberDiv:after, .positionExpDateDiv:after,.positionCvvDiv:after,.u-cf {
   content: "";
   display: table;
   clear: both; }
