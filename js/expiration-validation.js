@@ -1,33 +1,44 @@
 /**
  * @file expiration-validation.js
- * pure validation function@s for the expiration Input field
+ * pure validation functions for the expiration Input field
  */
 
- /*
+/*
  * Validations:
  * 1) Check if expiration date has passed
  */
 
 /**
- * Compare input with server month and year to see if the expiration date has passed
- * Current year and current month are considered valid (Caution: some cards expire at the beginning of the month)
- * @function validExpirationDate
- * @param {String} month - xx format
- * @param {String} year - xxxx format
- * @returns {Boolean}
+ * @function monthNotValid 
+ * @param {Int} month
+ * @param {Int} year
+ * @return {Boolean} false if year <= current year and month >= current month OR if year > current year, true otherwise 
  */
-function validExpirationDate(month, year){
-	//get current date
-	var today = new Date();
-	var currentMonth = today.getMonth() + 1; //month begins index at 0
-	var currentYear = today.getFullYear(); 
+function monthNotValid(month, year) {
+  //get current date
+  var today = new Date();
+  var currentMonth = today.getMonth() + 1; //month begins index at 0
+  var currentYear = today.getFullYear(); 
 
-	//if year has passed
-	if (year < currentYear){
-		return false;
-	}
-	//if month has passed in current year
-	else if( month < currentMonth && year == currentYear ){
-		return false;
-	}else return true;
+  if(year <= currentYear) {
+    return month < currentMonth;
+  }
+
+  if(year > currentYear) {
+    return false;
+  }
+
+}
+
+/**
+ * @function monthNotValid 
+ * @param {Int} month
+ * @return {Boolean} false if year >= current year, true otherwise
+ */
+function yearNotValid(year) {
+  // get current date
+  var today = new Date();
+  var currentYear = today.getFullYear(); 
+
+  return year < currentYear; 
 }
