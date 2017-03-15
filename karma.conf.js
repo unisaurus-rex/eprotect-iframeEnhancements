@@ -20,11 +20,13 @@ module.exports = function(config) {
       'js/expiration-validation.js',
       'js/formatPan.js',
       'js/cvc-validation.js',
+      'js/utils.js',
       'test/pan-validation-test.js',
       'test/ineligible-chars-test.js',
       'test/expiration-validation-test.js',
       'test/formatPan-test.js',
-      'test/cvc-test.js'
+      'test/cvc-test.js',
+      'test/utils-test.js'
     ],
 
     client: {
