@@ -59,9 +59,8 @@
                 <span id="accountNumberLabelText">Card number</span>
                 <span id="accountNumberLabelAfter"></span>
               </label>
-              <input type="text" id="accountnumber" name="pan" pattern="[0-9]{13,16}" maxlength="16" placeholder="Credit Card Number">
-              <i id="ccicon" class="fa fa-cc-amex" aria-hidden="true"></i><br>
-              <small>lil small text</small>
+              <input type="text" id="accountnumber" name="pan" pattern="[0-9]{13,16}" maxlength="19" placeholder="Credit Card Number">
+              <i id="ccicon" class="fa fa-cc-amex" aria-hidden="true"></i>
             </div>
           </div>
 
@@ -72,8 +71,8 @@
                 <span id="expDateLabelText">Card Expiration Date</span>
                 <span id="expDateLabelAfter"></span>
               </label>
-              <input type="text" id="expMonth" list="expMonth" pattern="[0-9]{2}" size="3" name="expMonth" maxlength="2" placeholder="01">/
-              <input type="text" id="expYear" list="expYear" pattern="[0-9]{2}" maxlength="2" size="3" name="expYear" placeholder="17">
+              <input type="text" id="expMonth" list="expMonth" pattern="[0-9]{2}" name="expMonth" maxlength="2" placeholder="01">/
+              <input type="text" id="expYear" list="expYear" pattern="[0-9]{2}" maxlength="2"  name="expYear" placeholder="17">
             </div>
           </div>
 
@@ -84,12 +83,12 @@
                 <span id="cvvLabelText">Security code</span>
                 <span id="cvvLabelAfter"></span>
               </label>
-              <input type="text" id="cvc" pattern="[0-9]{3,4}" maxlength="4" size="4" name="cvc" placeholder="CVC">
+              <input type="text" id="cvc" pattern="[0-9]{3,4}" maxlength="4" name="cvc" placeholder="CVC">
             </div>
           </div>
 
         </form>
-        <input class="button-primary" type="submit" value="submit input">
+        
       </div>
     </div>
   </div>
