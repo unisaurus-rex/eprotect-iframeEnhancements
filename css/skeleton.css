@@ -121,9 +121,13 @@ a:hover {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 img {
-    max-width: 100%;
-    height: auto;
-    width: auto\9; /* ie8 */}
+width: auto\9;
+height: auto;
+width: 100%;
+max-width: 100%;
+vertical-align: middle;
+border: 0;
+-ms-interpolation-mode: bicubic;}
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -274,12 +278,42 @@ label.invalid:after {
    content: "\f057";
    padding-left: 1em;
    color:red;}
-
-.error {
-  display: block;
+.error:after {
     font-size: .8em;
     font-weight: normal;
     line-height: 1em;
+}
+.error-871:after {
+  content: "Account number not Mod10.";
+  color: red;
+}
+.error-872:after {
+  content: "Account number too short.";
+  color: red;
+}
+.error-873:after {
+  content: "Account number too long";
+  color: red;
+}
+.error-874:after {
+  content: "Account number not numeric.";
+  color: red;
+}
+.error-876:after {
+  content: "Account number invalid.";
+  color: red;
+}
+.error-881:after {
+  content: "Card validation num not numeric.";
+  color: red;
+}
+.error-882:after {
+  content: "Card validation num too short";
+  color: red;
+}
+.error-883:after {
+  content: "Card validation num too long.";
+  color: red;
 }
      
 /* Tooltip
@@ -288,31 +322,25 @@ label.invalid:after {
 .tooltip {
     position: relative;
     display: inline-block;
-    text-decoration: none;
-}
-
+    text-decoration: none;}
 .tooltip .tooltiptext {
     visibility: hidden;
-    max-width: 200px;
-    min-width: 100px;
-    background-color: #eee;
+    background-color: #fff;
+    max-width: 400px;
     color: #000;
     text-align: center;
     border-radius: 2px;
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    left: 50%;
+    bottom: 110%;
+    left: 5px;
     margin-left: -60px;
     opacity: 0;
     transition: opacity 1s;
     box-shadow: 2px 2px 2px #666;
     -moz-box-shadow: 2px 2px 2px #666;
-    webkit-box-shadow: 2px 2px 2px #666;
-
-}
-
+    webkit-box-shadow: 2px 2px 2px #666;}
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -321,17 +349,20 @@ label.invalid:after {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #eee transparent transparent transparent;
-}
-
+    border-color: #fff transparent transparent transparent;}
 .tooltip:hover .tooltiptext {
     visibility: visible;
-    opacity: 1;
-}
+    opacity: 1;}
+#numTip.tooltip:hover .tooltiptext:before {
+    font-family: sans-serif;
+    content:"CSS content text for card number"}
+#expTip.tooltip:hover .tooltiptext:before {
+    font-family: sans-serif;
+    content:"CSS content text for expiration date"}
+#cvcTip.tooltip:hover .tooltiptext:before {
+    font-family: sans-serif;  
+    content:"Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl."}
 
-.tooltip:hover .tooltiptext:before {
-    content:"Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl."
-}
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
@@ -341,7 +372,7 @@ input,
 textarea,
 select,
 fieldset {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1rem; }
 pre,
 blockquote,
 dl,

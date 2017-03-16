@@ -55,11 +55,11 @@
           <div class="positionNumberDiv">
             <div class="numberDiv">
               <label for="accountnumber">
-                <span id="accountNumberLabelBefore"></span>
+                <span id="accountNumberLabelBefore"><a href="#"<i id="numTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
                 <span id="accountNumberLabelText">Card number</span>
                 <span id="accountNumberLabelAfter"></span>
               </label>
-              <input type="text" id="accountnumber" name="pan" pattern="[0-9]{13,16}" maxlength="19" placeholder="Credit Card Number">
+              <input type="text" id="accountnumber" name="pan" pattern="[0-9]{13,16}" placeholder="Credit Card Number">
               <i id="ccicon" class="fa fa-cc-amex" aria-hidden="true"></i>
             </div>
           </div>
@@ -67,7 +67,7 @@
           <div class="positionExpDateDiv">
             <div class="expDateDiv">
               <label for="expMonth">
-        <span id="expDateLabelBefore"></span>
+        <span id="expDateLabelBefore"><a href="#"<i id="expTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
         <span id="expDateLabelText">Card Expiration Date</span>
         <span id="expDateLabelAfter"></span>
     </label>
@@ -112,11 +112,14 @@
           <div class="positionCvvDiv">
             <div class="cvvDiv">
               <label for="cvc">
-                <span id="cvvLabelBefore"><a href="#"<i class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
+                <span id="cvvLabelBefore"><a href="#"><i id="cvcTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext">
+                  <img src="images/amex_front.png" alt="Amex CVC"/>
+                  <img src="images/cc_back.png" alt="Amex CVC"/>                
+                </span></i></a></span>
                 <span id="cvvLabelText">Security code</span>
                 <span id="cvvLabelAfter"></span>
               </label>
-              <input type="text" id="cvc" pattern="[0-9]{3,4}" maxlength="4" name="cvc" placeholder="CVC">
+              <input type="text" id="cvc" pattern="[0-9]{3,4}" name="cvc" placeholder="CVC">
             </div>
           </div>
 
