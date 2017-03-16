@@ -15,8 +15,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'js/*.js',
-      'test/*.js'
+      'js/pan-validation.js',
+      'js/ineligible-chars.js',
+      'js/expiration-validation.js',
+      'js/formatPan.js',
+      'js/cvc-validation.js',
+      'js/utils.js',
+      'test/pan-validation-test.js',
+      'test/ineligible-chars-test.js',
+      'test/expiration-validation-test.js',
+      'test/formatPan-test.js',
+      'test/cvc-test.js',
+      'test/utils-test.js'
     ],
 
     client: {
