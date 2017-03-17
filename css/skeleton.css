@@ -325,7 +325,9 @@ label.invalid:after {
     text-decoration: none;}
 .tooltip .tooltiptext {
     visibility: hidden;
+    display: none;
     background-color: #fff;
+    width: auto;
     max-width: 400px;
     color: #000;
     text-align: center;
@@ -340,7 +342,7 @@ label.invalid:after {
     transition: opacity 1s;
     box-shadow: 2px 2px 2px #666;
     -moz-box-shadow: 2px 2px 2px #666;
-    webkit-box-shadow: 2px 2px 2px #666;}
+    -webkit-box-shadow: 2px 2px 2px #666;}
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -352,10 +354,11 @@ label.invalid:after {
     border-color: #fff transparent transparent transparent;}
 .tooltip:hover .tooltiptext {
     visibility: visible;
+    display: unset;
     opacity: 1;}
 #numTip.tooltip:hover .tooltiptext:before {
     font-family: sans-serif;
-    content:"CSS content text for card number"}
+    content:"CSS content text for card number";}
 #expTip.tooltip:hover .tooltiptext:before {
     font-family: sans-serif;
     content:"CSS content text for expiration date"}
@@ -393,7 +396,6 @@ form {
   display: table;
   clear: both; }
 
-
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*
@@ -402,7 +404,6 @@ near the relevant code. For example, if you wanted to change the styles for butt
 on small devices, paste the mobile query code up in the buttons section and style it
 there.
 */
-
 
 /* Larger than mobile */
 @media (min-width: 400px) {}
