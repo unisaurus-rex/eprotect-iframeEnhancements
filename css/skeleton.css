@@ -1,12 +1,11 @@
 /*
-* Skeleton V2.0.4 -- Modified
-* Copyright 2014, Dave Gamache & 2017, Team Unisaurus Rex
+* Vantiv Skeleton V1 -- Based on Skeleton
+* Copyright 2017 -- Team Unisaurus Rex & Copyright 2014, Dave Gamache
 * www.getskeleton.com  &  https://github.com/unisaurus-rex
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
-* 12/29/2014
+* 3/14/2017
 */
-
 
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -14,17 +13,14 @@
 - Base Styles
 - Typography
 - Links
+- Images
 - Buttons
 - Forms
-- Lists
-- Code
-- Tables
+- Tooltip
 - Spacing
-- Utilities
 - Clearing
 - Media Queries
 */
-
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -35,7 +31,7 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
-.column,
+.column, .positionNumberDiv, .positionExpDateDiv, .positionCvvDiv,
 .columns {
   width: 100%;
   float: left;
@@ -44,7 +40,7 @@
 /* For devices larger than 400px */
 @media (min-width: 400px) {
   .container {
-    width: 85%;
+    width: 95%;
     padding: 0; }
 }
 
@@ -52,66 +48,27 @@
 @media (min-width: 550px) {
   .container {
     width: 80%; }
-  .column,
+.column, 
   .columns {
     margin-left: 4%; }
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
 
-  .one.column,
-  .one.columns                    { width: 4.66666666667%; }
-  .two.columns                    { width: 13.3333333333%; }
-  .three.columns                  { width: 22%;            }
-  .four.columns                   { width: 30.6666666667%; }
-  .five.columns                   { width: 39.3333333333%; }
-  .six.columns                    { width: 48%;            }
-  .seven.columns                  { width: 56.6666666667%; }
-  .eight.columns                  { width: 65.3333333333%; }
-  .nine.columns                   { width: 74.0%;          }
-  .ten.columns                    { width: 82.6666666667%; }
-  .eleven.columns                 { width: 91.3333333333%; }
-  .twelve.columns                 { width: 100%; margin-left: 0; }
+.one-third.column                { width: 30.6666666667%; }
+.two-thirds.column               { width: 65.3333333333%; }
 
-  .one-third.column               { width: 30.6666666667%; }
-  .two-thirds.column              { width: 65.3333333333%; }
-
-  .one-half.column                { width: 48%; }
-
-  /* Offsets */
-  .offset-by-one.column,
-  .offset-by-one.columns          { margin-left: 8.66666666667%; }
-  .offset-by-two.column,
-  .offset-by-two.columns          { margin-left: 17.3333333333%; }
-  .offset-by-three.column,
-  .offset-by-three.columns        { margin-left: 26%;            }
-  .offset-by-four.column,
-  .offset-by-four.columns         { margin-left: 34.6666666667%; }
-  .offset-by-five.column,
-  .offset-by-five.columns         { margin-left: 43.3333333333%; }
-  .offset-by-six.column,
-  .offset-by-six.columns          { margin-left: 52%;            }
-  .offset-by-seven.column,
-  .offset-by-seven.columns        { margin-left: 60.6666666667%; }
-  .offset-by-eight.column,
-  .offset-by-eight.columns        { margin-left: 69.3333333333%; }
-  .offset-by-nine.column,
-  .offset-by-nine.columns         { margin-left: 78.0%;          }
-  .offset-by-ten.column,
-  .offset-by-ten.columns          { margin-left: 86.6666666667%; }
-  .offset-by-eleven.column,
-  .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
-
-  .offset-by-one-third.column,
-  .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
-  .offset-by-two-thirds.column,
-  .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
-
-  .offset-by-one-half.column,
-  .offset-by-one-half.columns     { margin-left: 52%; }
-
+.one-half.column,
+.positionExpDateDiv,
+.positionCvvDiv                  { width: 48%; }
+#expMonthDiv, #expYearDiv        { width: 42%; }
+#expDividerDiv                   { width: 5%; }
+#expMonthDiv, #expYearDiv,            
+#expDividerDiv   { 
+  display: -webkit-inline-box;
+  display: inline-block;
+ }
 }
-
 
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -126,7 +83,6 @@ body {
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; }
-
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -154,7 +110,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 p {
   margin-top: 0; }
 
-
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
@@ -162,6 +117,17 @@ a {
 a:hover {
   color: #0FA0CE; }
 
+  /* Images
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+img {
+width: auto\9;
+height: auto;
+width: 100%;
+max-width: 100%;
+vertical-align: middle;
+border: 0;
+-ms-interpolation-mode: bicubic;}
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -235,6 +201,7 @@ input[type="password"],
 textarea,
 select {
   height: 38px;
+  width: 90%;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   border: 1px solid #D1D1D1;
@@ -283,59 +250,118 @@ label > .label-body {
   display: inline-block;
   margin-left: .5rem;
   font-weight: normal; }
-input:invalid {
+input[type="text"].invalid,select.invalid {
     border-color: red; }
-
-
-/* Lists
+input[type="text"].valid, select.valid {
+    border-color: green; }
+#accountNumberLabelText.valid:after,
+#expDateLabelText.valid:after,
+#cvvLabelText.valid:after {
+  font-family: FontAwesome;
+   content: "\f058";
+   color: green;
+   padding-left: 1em; }
+#accountNumberLabelText.invalid:after,
+#expDateLabelText.invalid:after,
+#cvvLabelText.invalid:after {
+  font-family: FontAwesome;
+   content: "\f057";
+   color: red;
+   padding-left: 1em; }
+label.valid:after {
+   font-family: FontAwesome;
+   content: "\f058";
+   padding-left: 1em;
+   color:green;}
+label.invalid:after {
+   font-family: FontAwesome;
+   content: "\f057";
+   padding-left: 1em;
+   color:red;}
+.error:after {
+    font-size: .8em;
+    font-weight: normal;
+    line-height: 1em;
+}
+.error-871:after {
+  content: "Account number not Mod10.";
+  color: red;
+}
+.error-872:after {
+  content: "Account number too short.";
+  color: red;
+}
+.error-873:after {
+  content: "Account number too long";
+  color: red;
+}
+.error-874:after {
+  content: "Account number not numeric.";
+  color: red;
+}
+.error-876:after {
+  content: "Account number invalid.";
+  color: red;
+}
+.error-881:after {
+  content: "Card validation num not numeric.";
+  color: red;
+}
+.error-882:after {
+  content: "Card validation num too short";
+  color: red;
+}
+.error-883:after {
+  content: "Card validation num too long.";
+  color: red;
+}
+     
+/* Tooltip
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-ul {
-  list-style: circle inside; }
-ol {
-  list-style: decimal inside; }
-ol, ul {
-  padding-left: 0;
-  margin-top: 0; }
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin: 1.5rem 0 1.5rem 3rem;
-  font-size: 90%; }
-li {
-  margin-bottom: 1rem; }
 
-
-/* Code
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-code {
-  padding: .2rem .5rem;
-  margin: 0 .2rem;
-  font-size: 90%;
-  white-space: nowrap;
-  background: #F1F1F1;
-  border: 1px solid #E1E1E1;
-  border-radius: 4px; }
-pre > code {
-  display: block;
-  padding: 1rem 1.5rem;
-  white-space: pre; }
-
-
-/* Tables
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-th,
-td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #E1E1E1; }
-th:first-child,
-td:first-child {
-  padding-left: 0; }
-th:last-child,
-td:last-child {
-  padding-right: 0; }
-
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #fff;
+    max-width: 400px;
+    color: #000;
+    text-align: center;
+    border-radius: 2px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 5px;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+    box-shadow: 2px 2px 2px #666;
+    -moz-box-shadow: 2px 2px 2px #666;
+    webkit-box-shadow: 2px 2px 2px #666;}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;}
+#numTip.tooltip:hover .tooltiptext:before {
+    font-family: sans-serif;
+    content:"CSS content text for card number"}
+#expTip.tooltip:hover .tooltiptext:before {
+    font-family: sans-serif;
+    content:"CSS content text for expiration date"}
+#cvcTip.tooltip:hover .tooltiptext:before {
+    font-family: sans-serif;  
+    content:"Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl."}
 
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -346,7 +372,7 @@ input,
 textarea,
 select,
 fieldset {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1rem; }
 pre,
 blockquote,
 dl,
@@ -358,37 +384,11 @@ ol,
 form {
   margin-bottom: 2.5rem; }
 
-
-/* Utilities
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.u-full-width {
-  width: 100%;
-  box-sizing: border-box; }
-.u-max-full-width {
-  max-width: 100%;
-  box-sizing: border-box; }
-.u-pull-right {
-  float: right; }
-.u-pull-left {
-  float: left; }
-
-
-/* Misc
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-hr {
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
-  border-width: 0;
-  border-top: 1px solid #E1E1E1; }
-
-
 /* Clearing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Self Clearing Goodness */
-.container:after,
-.row:after,
-.u-cf {
+.container:after,.row:after.u-cf {
   content: "";
   display: table;
   clear: both; }
