@@ -106,7 +106,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   h5 { font-size: 2.4rem; }
   h6 { font-size: 1.5rem; }
 }
-
 p {
   margin-top: 0; }
 
@@ -326,24 +325,25 @@ label.invalid:after {
 .tooltip .tooltiptext {
     visibility: hidden;
     display: none;
-    background-color: #fff;
-    width: auto;
-    max-width: 400px;
-    color: #000;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #fcfcfc;
+	  border: 1px solid #f5f5f5;
+    color: #222;
     text-align: center;
     border-radius: 2px;
-    padding: 5px 0;
+    padding: 5px;
     position: absolute;
     z-index: 1;
     bottom: 110%;
     left: 5px;
-    margin-left: -60px;
+    width: 300px;
+    margin-left: -150px;
     opacity: 0;
-    transition: opacity 1s;
-    box-shadow: 2px 2px 2px #666;
-    -moz-box-shadow: 2px 2px 2px #666;
-    -webkit-box-shadow: 2px 2px 2px #666;}
-.tooltip .tooltiptext::after {
+    transition: opacity 1s}
+.tooltip .tooltiptext img {
+    display: inline-block;
+    max-width: 45%;}
+.tooltip .tooltiptext::after {    /* Tooltip arrow */
     content: "";
     position: absolute;
     top: 100%;
@@ -351,20 +351,18 @@ label.invalid:after {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #fff transparent transparent transparent;}
+    border-color: #ccc transparent transparent transparent;}    
 .tooltip:hover .tooltiptext {
     visibility: visible;
-    display: unset;
+    display: block;
     opacity: 1;}
 #numTip.tooltip:hover .tooltiptext:before {
-    font-family: sans-serif;
-    content:"CSS content text for card number";}
+    content:"CSS content text for card number:";}
 #expTip.tooltip:hover .tooltiptext:before {
-    font-family: sans-serif;
     content:"CSS content text for expiration date"}
 #cvcTip.tooltip:hover .tooltiptext:before {
-    font-family: sans-serif;  
-    content:"Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl."}
+    display: block;  
+    content:"Your tool tip content here! Ideal this should be short and sweet"}
 
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
