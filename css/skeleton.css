@@ -500,6 +500,7 @@ To add modal functionality remove "display:none;" from class modals
   right: 5px;
   display: block;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .modal a.close-modal:after {
