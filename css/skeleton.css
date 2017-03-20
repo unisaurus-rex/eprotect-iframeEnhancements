@@ -325,6 +325,7 @@ label.invalid:after {
     text-decoration: none;}
 .tooltip .tooltiptext {
     visibility: hidden;
+    display: none;
     background-color: #fff;
     max-width: 400px;
     color: #000;
@@ -352,6 +353,7 @@ label.invalid:after {
     border-color: #fff transparent transparent transparent;}
 .tooltip:hover .tooltiptext {
     visibility: visible;
+    display: unset;
     opacity: 1;}
 #numTip.tooltip:hover .tooltiptext:before {
     font-family: sans-serif;
@@ -418,3 +420,26 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+
+/* Modals
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: To remove modal functionality add "display:none;" to the class modals.
+To add modal functionality remove "display:none;" from class modals
+*/
+
+.modals{
+  /* To remove modal functionality add "display:none;" to the class modals" */
+  /* To add modal functionality remove "display:none;" from class modals*/
+  /*display: none; */
+}
+#accountnumberModal:before{
+  content: "CSS content text for card number";
+}
+#expDateModal:before{
+  content: "CSS content text for expiration date";
+}
+#cvvModal:before{
+  content: "Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl.";
+}
