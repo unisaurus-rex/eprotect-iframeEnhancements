@@ -51,5 +51,8 @@ function errLookUp(func){
 		cvcShort: "error-882",
 		cvcLong: "error-883"
 	}
-	return obj[func];
+	if (obj[func]){
+		return obj[func];
+	}
+	else return "";
 }

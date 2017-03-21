@@ -24,7 +24,8 @@ describe('utils', function() {
 describe('stripSpaces', function() {
   var stripSpacesTests = {
     '1 2 3': "123",
-    ' 23! ': "23!"
+    ' 23! ': "23!",
+    "": ""
   };
 
   Object.keys(stripSpacesTests).forEach(function(test) {
@@ -42,7 +43,8 @@ describe('errLookUp', function() {
     panNotNumeric: "error-874",
     cvcNotNumeric: "error-881",
     cvcShort: "error-882",
-    cvcLong: "error-883"
+    cvcLong: "error-883",
+    " ": ""
   };
 
   Object.keys(errLookUpTests).forEach(function(test) {
