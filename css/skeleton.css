@@ -106,7 +106,6 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
   h5 { font-size: 2.4rem; }
   h6 { font-size: 1.5rem; }
 }
-
 p {
   margin-top: 0; }
 
@@ -325,23 +324,28 @@ label.invalid:after {
     text-decoration: none;}
 .tooltip .tooltiptext {
     visibility: hidden;
-    background-color: #fff;
-    max-width: 400px;
-    color: #000;
+    display: none;
+
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #fcfcfc;
+	  border: 1px solid #ccc;
+    color: #222;
+
     text-align: center;
     border-radius: 2px;
-    padding: 5px 0;
+    padding: 5px;
     position: absolute;
     z-index: 1;
     bottom: 110%;
     left: 5px;
-    margin-left: -60px;
+    width: 300px;
+    margin-left: -150px;
     opacity: 0;
-    transition: opacity 1s;
-    box-shadow: 2px 2px 2px #666;
-    -moz-box-shadow: 2px 2px 2px #666;
-    webkit-box-shadow: 2px 2px 2px #666;}
-.tooltip .tooltiptext::after {
+    transition: opacity 1s}
+.tooltip .tooltiptext img {
+    display: inline-block;
+    max-width: 45%;}
+.tooltip .tooltiptext::after {    /* Tooltip arrow */
     content: "";
     position: absolute;
     top: 100%;
@@ -349,19 +353,22 @@ label.invalid:after {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #fff transparent transparent transparent;}
+    border-color: #ccc transparent transparent transparent;}    
 .tooltip:hover .tooltiptext {
     visibility: visible;
+
+    display: unset;
+
+    display: block;
+
     opacity: 1;}
 #numTip.tooltip:hover .tooltiptext:before {
-    font-family: sans-serif;
-    content:"CSS content text for card number"}
+    content:"CSS content text for card number:";}
 #expTip.tooltip:hover .tooltiptext:before {
-    font-family: sans-serif;
     content:"CSS content text for expiration date"}
 #cvcTip.tooltip:hover .tooltiptext:before {
-    font-family: sans-serif;  
-    content:"Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl."}
+    display: block;  
+    content:"Your tool tip content here! Ideal this should be short and sweet"}
 
 /* Spacing
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -393,7 +400,6 @@ form {
   display: table;
   clear: both; }
 
-
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*
@@ -402,7 +408,6 @@ near the relevant code. For example, if you wanted to change the styles for butt
 on small devices, paste the mobile query code up in the buttons section and style it
 there.
 */
-
 
 /* Larger than mobile */
 @media (min-width: 400px) {}
@@ -418,3 +423,88 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+
+/* Modals
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: To remove modal functionality add "display:none;" to the class modals.
+To add modal functionality remove "display:none;" from class modals
+*/
+
+.modals{
+  /* To remove modal functionality add "display:none;" to the class modals" */
+  /* To add modal functionality remove "display:none;" from class modals*/
+  /*display: none; */
+}
+#accountnumberModal:before{
+  content: "CSS content text for card number";
+}
+#expDateModal:before{
+  content: "CSS content text for expiration date";
+}
+#cvvModal:before{
+  content: "Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl.";
+}
+
+
+
+.blocker {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.75);
+  text-align: center;
+}
+.blocker:before{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.05em;
+}
+.blocker.behind {
+  background-color: transparent;
+}
+.modal {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  box-sizing: border-box;
+  width: 90%;
+  background: #fff;
+  padding: 15px 30px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+  text-align: left;
+}
+
+.modal a.close-modal {
+  position: absolute;
+  top: -2px;
+  right: 5px;
+  display: block;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.modal a.close-modal:after {
+  padding-left: .5em;
+  content: "\f057";
+  font-family: FontAwesome;
+}

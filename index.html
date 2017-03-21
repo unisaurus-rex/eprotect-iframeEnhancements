@@ -55,9 +55,10 @@
           <div class="positionNumberDiv">
             <div class="numberDiv">
               <label for="accountnumber">
-                <span id="accountNumberLabelBefore"><a href="#"<i id="numTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
+                <span id="accountNumberLabelBefore"><a href="#"><i id="numTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
+                <span id="accountNumberModalBefore"><a class="modals" href="#accountnumberModal" rel="modal:open"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+                <span id="accountnumberModal" style="display:none;"></span>
                 <span id="accountNumberLabelText">Card number</span>
-                <span id="accountNumberLabelAfter"></span>
               </label>
               <input type="text" id="accountnumber" name="pan" pattern="[0-9]{13,16}" placeholder="Credit Card Number">
               <i id="ccicon" class="fa fa-cc-amex" aria-hidden="true"></i>
@@ -67,10 +68,14 @@
           <div class="positionExpDateDiv">
             <div class="expDateDiv">
               <label for="expMonth">
-        <span id="expDateLabelBefore"><a href="#"<i id="expTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
-        <span id="expDateLabelText">Card Expiration Date</span>
-        <span id="expDateLabelAfter"></span>
-    </label>
+
+                <span id="expDateLabelBefore"><a href="#"><i id="expTip" class="fa fa-question-circle tooltip" aria-hidden="true"><span class="tooltiptext"></span></i></a></span>
+                <span id="expDateLabelModalBefore"><a class="modals" href="#expDateModal" rel="modal:open"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+                <span id="expDateModal" style="display:none;"></span>
+                <span id="expDateLabelText">Card Expiration Date</span>
+                <span id="expDateLabelAfter"></span>
+              </label>
+
               <div id="expSelectDiv">
                 <div id="expMonthDiv">
                   <select name="expMonth" id="expMonth">
@@ -116,6 +121,12 @@
                   <img src="images/amex_front.png" alt="Amex CVC"/>
                   <img src="images/cc_back.png" alt="Amex CVC"/>                
                 </span></i></a></span>
+
+                <span id="cvvLabelModalBefore"><a class="modals" href="#cvvModal" rel="modal:open"><i class="fa fa-question-circle" aria-hidden="true"></i></a></span>
+                <span id="cvvModal" style="display:none;">
+                  <img src="images/amex_front.png" alt="Amex CVC"/>
+                  <img src="images/cc_back.png" alt="Amex CVC"/>    
+                </span>
                 <span id="cvvLabelText">Security code</span>
                 <span id="cvvLabelAfter"></span>
               </label>
@@ -134,7 +145,7 @@
   <script type="text/javascript" src="js/init.js"></script>
   <script type="text/javascript" src="js/cvc-validation.js"></script>
   <script type="text/javascript" src="js/form-ux.js"></script>
-
+  <script type="text/javascript" src="js/jquery-modal.min.js"></script>
 
   <script>
     init();
