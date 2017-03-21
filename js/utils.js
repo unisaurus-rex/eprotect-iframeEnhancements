@@ -21,3 +21,32 @@ function monthStrToInt(str) {
   return parseInt(str);
   
 }
+
+/**
+ * @function stripSpaces
+ * @param {String} str 
+ */
+function stripSpaces(str){
+	if (str){
+		return str.replace(/ /g,'');		
+	}
+	else return "";
+}
+
+/**
+ * @function errLookUp
+ * Return error class given a function
+ * @param {String} str 
+ */
+function errLookUp(func){
+	obj = {
+		isMod10: "error-871",
+		panShort: "error-872",
+		panLong: "error-873",
+		panNotNumeric: "error-874",
+		cvcNotNumeric: "error-881",
+		cvcShort: "error-882",
+		cvcLong: "error-883"
+	}
+	return obj[func];
+}

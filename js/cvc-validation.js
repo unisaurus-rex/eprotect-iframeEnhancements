@@ -12,22 +12,22 @@
 
 /**
  * Check CVC for non numberic characters
- * @function cvcNumericCheck
+ * @function cvcNotNumeric
  * @param {String} cvc
  * @returns {Boolean}
  */
-function cvcNumericCheck(cvc){
+function cvcNotNumeric(cvc){
 	var test = /^[0-9]+$/.test(cvc);
-	return test;
+	return !test;
 }
 
 /**
  * Check if cvc length is too short
- * @function cvcUnderlength
+ * @function cvcShort
  * @param {String} cvc
  * @returns {Boolean}
  */
-function cvcUnderLength(pan, cvc){
+function cvcShort(pan, cvc){
 	var type = detectCardType(pan);
 	var length = getCvcLengthByCardType(type);
 	return underLength(cvc, Math.floor(length));
@@ -35,11 +35,11 @@ function cvcUnderLength(pan, cvc){
 
 /**
  * Check if cvc length is too long
- * @function cvcOverlength
+ * @function cvcLong
  * @param {String} cvc
  * @returns {Boolean}
  */
-function cvcOverLength(pan, cvc){
+function cvcLong(pan, cvc){
 	var type = detectCardType(pan);
 	var length = getCvcLengthByCardType(type);
 	return overLength(cvc, Math.ceil(length));
