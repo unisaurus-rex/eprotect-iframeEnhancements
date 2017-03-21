@@ -24,7 +24,9 @@ function monthStrToInt(str) {
 
 /**
  * @function stripSpaces
+ * Strips all white space
  * @param {String} str 
+ * @returns {String}
  */
 function stripSpaces(str){
 	if (str){
@@ -36,7 +38,8 @@ function stripSpaces(str){
 /**
  * @function errLookUp
  * Return error class given a function
- * @param {String} str 
+ * @param {Function} func - validation function 
+ * @returns {String} - error class 
  */
 function errLookUp(func){
 	obj = {
