@@ -5,3 +5,5 @@
 
 $('#expMonth').blur(handleMonthEvent);
 $('#expMonth').change(handleMonthEvent);
+$('#expYear').blur(handleYearEvent);
+$('#expYear').change(handleYearEvent);
