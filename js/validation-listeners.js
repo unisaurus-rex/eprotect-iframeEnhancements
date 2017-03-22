@@ -17,8 +17,6 @@ function panInitEvents() {
 
 function panKeyPress(e) {
     
-  var keyPressed = e.key;
-
   var charCode = e.which || e.keyCode;
 
   if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -27,6 +25,8 @@ function panKeyPress(e) {
     if (charCode == 8){
       return true;
     }
+    
+    var c = String.fromCharCode(charCode);
 
     //get pan
     var pan = $("#accountnumber").val();
@@ -35,7 +35,7 @@ function panKeyPress(e) {
     pan = stripSpaces(pan);
 
     //add keypressed
-    pan = pan + keyPressed;
+    pan = pan + c;
 
     //update dom with formatted pan
     $("#accountnumber").val(formatPan(pan));
