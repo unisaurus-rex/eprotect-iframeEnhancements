@@ -12,8 +12,6 @@
 
 var cardvar = "";//a dummy value for testing
 var panValid = true;
-var monthValid = false;
-var yearValid = true;
 var cvcValid = true;
 $('#accountnumber').blur(panValidUi); //On blur event listener that should be used on the input fields
 $('#accountnumber').blur(iconSwitch);
@@ -25,30 +23,30 @@ $('#cvc').blur(cvcValidUi); //On blur event listener run the UI
 
 function iconSwitch() {
 
-	var icon = $('#ccicon');
+  var icon = $('#ccicon');
 
-	switch (cardvar) {
-		case 'amex':
-			icon.removeClass().addClass('fa fa-cc-amex fa-lg');
-			break;
+  switch (cardvar) {
+  case 'amex':
+    icon.removeClass().addClass('fa fa-cc-amex fa-lg');
+    break;
 
-		case 'discover':
-			icon.removeClass().addClass('fa fa-cc-discover fa-lg');
-			break;
+  case 'discover':
+    icon.removeClass().addClass('fa fa-cc-discover fa-lg');
+    break;
 
-		case 'mastercard':
-			icon.removeClass().addClass('fa fa-cc-mastercard fa-lg');
-			break;
+  case 'mastercard':
+    icon.removeClass().addClass('fa fa-cc-mastercard fa-lg');
+    break;
 
-		case 'visa':
-			icon.removeClass().addClass('fa fa-cc-visa fa-lg');
-			break;
+  case 'visa':
+    icon.removeClass().addClass('fa fa-cc-visa fa-lg');
+    break;
 
-		default:
-			icon.removeClass().addClass('fa fa-credit-card fa-lg');
-			break;
-	}
-	return cardvar;
+  default:
+    icon.removeClass().addClass('fa fa-credit-card fa-lg');
+    break;
+  }
+  return cardvar;
 };
 
 function panValidUi() {
@@ -62,43 +60,48 @@ function panValidUi() {
 	}
 };
 
-function monthValidUi() {
-	var elements = $('#expMonth,#expMonthLabelBefore,#expMonthLabelAfter,#expDateLabelText')
+/**
+ * Update the expiration year field's css classes based on input's validity 
+ * @function monthValidUi
+ * @param {Boolean} isValid - true if month input is valid
+ */
+function monthValidUi(isValid) {
+  var elements = $('#expMonth,#expMonthLabelBefore,#expMonthLabelAfter,#expDateLabelText');
 
-	if (monthValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
-	if (monthValid == false || yearValid == false) {
-		$('#expDateLabelText').removeClass().addClass('invalid')
-	}
-};
+  if (isValid) {
+    elements.removeClass().addClass('valid');
+  }
+  else {
+    elements.removeClass().addClass('invalid');
+  }
+}
 
-function yearValidUi() {
-	var elements = $('#expYear,#expYearLabelBefore,#expYearLabelAfter,#expDateLabelText')
+/**
+ * Update the expiration year field's css classes based on the inputs validity
+ * @function yearValidUi
+ * @param {Boolean} isValid - true if year is valid
+ */
+function yearValidUi(isValid) {
+  var elements = $('#expYear,#expYearLabelBefore,#expYearLabelAfter,#expDateLabelText');
 
-	if (yearValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
-	if (monthValid == false || yearValid == false) {
-		$('#expDateLabelText').removeClass().addClass('invalid')
-	}
-};
+  if (isValid) {
+    elements.removeClass().addClass('valid');
+  }
+  else {
+    elements.removeClass().addClass('invalid');
+  }
+  
+}
 
 function cvcValidUi() {
-	var elements = $('#cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
+  var elements = $('#cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
 
-	if (cvcValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
+  if (cvcValid == true) {
+    elements.removeClass().addClass('valid')
+  }
+  else {
+    elements.removeClass().addClass('invalid')
+  }
 };
 
 /**
