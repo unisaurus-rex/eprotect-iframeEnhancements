@@ -22,7 +22,7 @@ function panKeyPress(e) {
   if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
   }else{
-    if (charCode == 8){
+    if (charCode == 8 || charCode == 9){
       return true;
     }
     
