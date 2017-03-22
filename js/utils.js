@@ -23,6 +23,15 @@ function monthStrToInt(str) {
 }
 
 /**
+ * @function yearStrToInt
+ * @param {String} str - year value from ui dropdown
+ */
+function yearStrToInt(str) {
+  // year value from ui is two digits
+  return parseInt("20" + str);
+}
+
+/**
  * @function stripSpaces
  * Strips all white space
  * @param {String} str
