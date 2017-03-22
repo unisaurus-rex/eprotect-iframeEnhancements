@@ -57,3 +57,4 @@ function errLookUp(func){
   }
   else return "";
 }
+window.errLookUp = errLookUp;

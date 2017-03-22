@@ -95,3 +95,5 @@ function doubleDigit(num) {
 
   return twice;
 }
+
+window.panLong = panLong;

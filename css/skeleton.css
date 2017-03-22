@@ -277,32 +277,32 @@ label.invalid:after {
    content: "\f057";
    padding-left: .5em;
    color:red;}
-.error:after {
+#numberDiv:after,#expDateDiv:after,#cvvDiv:after {
     font-size: .8em;
     font-weight: normal;
     line-height: 1em;}
-.error-871:after {
+#numberDiv.error-871:after {
   content: "Account number not Mod10.";
   color: red;}
-.error-872:after {
+#numberDiv.error-872:after {
   content: "Account number too short.";
   color: red;}
-.error-873:after {
+#numberDiv.error-873:after {
   content: "Account number too long";
   color: red;}
-.error-874:after {
+#numberDiv.error-874:after {
   content: "Account number not numeric.";
   color: red;}
-.error-876:after {
+#numberDiv.error-876:after {
   content: "Account number invalid.";
   color: red;}
-.error-881:after {
+#cvvDiv.error-881:after {
   content: "Card validation num not numeric.";
   color: red;}
-.error-882:after {
+#cvvDiv.error-882:after {
   content: "Card validation num too short";
   color: red;}
-.error-883:after {
+#cvvDiv.error-883:after {
   content: "Card validation num too long.";
   color: red;}
      

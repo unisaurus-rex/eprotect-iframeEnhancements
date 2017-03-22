@@ -9,22 +9,7 @@
  * @returns {String}
  */
 
-
-var cardvar = "";//a dummy value for testing
-var panValid = true;
-var monthValid = false;
-var yearValid = true;
-var cvcValid = true;
-$('#accountnumber').blur(panValidUi); //On blur event listener that should be used on the input fields
-$('#accountnumber').blur(iconSwitch);
-$('#expMonth').blur(monthValidUi); //On blur event listener run the UI
-$('#expYear').blur(yearValidUi); //On blur event listener run the UI
-$('#cvc').blur(cvcValidUi); //On blur event listener run the UI
-
-
-
-function iconSwitch() {
-
+function iconSwitch(cardvar) {
 	var icon = $('#ccicon');
 
 	switch (cardvar) {
@@ -51,14 +36,20 @@ function iconSwitch() {
 	return cardvar;
 };
 
-function panValidUi() {
-	var elements = $('#accountnumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
 
-	if (panValid == true) {
-		elements.removeClass().addClass('valid')
+function panValidUi(errs) {
+	
+	var elements = $('#numberDiv,#accountnumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
+	elements.removeClass();
+	
+	if (errs.length == 0) {
+		elements.addClass('valid');
 	}
 	else {
-		elements.removeClass().addClass('invalid')
+		for (var i =0; i< errs.length; i++){
+			elements.addClass( errs[i] );
+		}
+		elements.addClass("invalid");
 	}
 };
 
@@ -90,32 +81,18 @@ function yearValidUi() {
 	}
 };
 
-function cvcValidUi() {
-	var elements = $('#cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
-
-	if (cvcValid == true) {
-		elements.removeClass().addClass('valid')
+function cvcValidUi(errs) {
+	var elements = $('#cvvDiv, #cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
+		elements.removeClass();
+	
+	if (errs.length == 0) {
+		elements.addClass('valid');
 	}
 	else {
-		elements.removeClass().addClass('invalid')
+		for (var i =0; i< errs.length; i++){
+			elements.addClass( errs[i] );
+		}
+		elements.addClass("invalid");
 	}
 };
-
-/**
- * A function to change the inputs class valid to invalid
- * @function blurTest
- */
-
-
-
-
-
-/**
- * A simple DOM tester that logs the current state of certain variables
- * @function blurTest
- */
-
-function blurTest() {
-	console.log(cardvar);
-}
 

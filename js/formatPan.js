@@ -124,5 +124,3 @@ function format4x4x4x4(pan){
   //return formatted pan
   return pan;
 }
-
-window.formatPan = formatPan;
