@@ -4,12 +4,57 @@
  */
 
 
-function panValidations() {
+/**
+ * validate the pan and return error strings from validation fails
+ * @function panValidations
+ * @param {String} pan - a string with no whitespace
+ * @return {String[]} array of error strings
+ */
+function panValidations(pan) {
   var errorMessages = [];
+  var err = "";
+
+  if(panNotNumeric(pan)) {
+    err = errLookUp('panNotNumeric');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+  }
+
+  if(panShort(pan)) {
+    err = errLookUp('panShort');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+
+    // no need to do other validations, return error messages
+    return errorMessages; 
+  }
+
+  if(panLong(pan)) {
+    err = errLookUp('panLong');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+
+    // no need to do other validations, return error messages
+    return errorMessages;
+  }
+
+  if(!isMod10(pan)) {
+    err = errLookUp('isMod10');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+  }
 
   return errorMessages;
 }
 
+/**
+ * @function cvvValidations
+ * @return {String[]} array of error strings
+ */
 function cvvValidations() {
   var errorMessages = [];
 

@@ -19,40 +19,41 @@ function monthStrToInt(str) {
 
   // else parse the whole string as an integer
   return parseInt(str);
-  
+
 }
 
 /**
  * @function stripSpaces
  * Strips all white space
- * @param {String} str 
+ * @param {String} str
  * @returns {String}
  */
 function stripSpaces(str){
-	if (str){
-		return str.replace(/ /g,'');		
-	}
-	else return "";
+  if (str){
+    return str.replace(/ /g,'');
+  }
+  else return "";
 }
 
 /**
  * @function errLookUp
  * Return error class given a function
- * @param {Function} func - validation function 
- * @returns {String} - error class 
+ * @param {String} func - string name of validation function
+ * @returns {String} - error class
  */
 function errLookUp(func){
-	obj = {
-		isMod10: "error-871",
-		panShort: "error-872",
-		panLong: "error-873",
-		panNotNumeric: "error-874",
-		cvcNotNumeric: "error-881",
-		cvcShort: "error-882",
-		cvcLong: "error-883"
-	}
-	if (obj[func]){
-		return obj[func];
-	}
-	else return "";
+  obj = {
+    isMod10: "error-871",
+    panShort: "error-872",
+    panLong: "error-873",
+    panNotNumeric: "error-874",
+    cvcNotNumeric: "error-881",
+    cvcShort: "error-882",
+    cvcLong: "error-883"
+  };
+
+  if (obj[func]){
+    return obj[func];
+  }
+  else return "";
 }
