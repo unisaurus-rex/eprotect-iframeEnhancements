@@ -52,11 +52,39 @@ function panValidations(pan) {
 }
 
 /**
+ * validate the cvc and return error strings from validation fails
  * @function cvvValidations
+ * @param {String} pan
+ * @param {String} cvc
  * @return {String[]} array of error strings
  */
-function cvvValidations() {
+function cvcValidations(pan, cvc) {
   var errorMessages = [];
+  var err = "";
+
+  if(cvcNotNumeric(cvc)) {
+    err = errLookUp('cvcNotNumeric');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+  }
+  
+  if(cvcShort(pan, cvc)) {
+    err = errLookUp('cvcShort');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+
+    // no need to check cvcLong if already short
+    return errorMessages;
+  }
+
+  if(cvcLong(pan, cvc)) {
+    err = errLookUp('cvcLong');
+    if(err.length !== 0) {
+      errorMessages.push(err);
+    }
+  }
 
   return errorMessages;
 }
