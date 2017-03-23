@@ -3,28 +3,16 @@
  * event listeners for field validation
  */
 
-  $('#accountnumber').blur(function() {
-    panBlur();
-  });
+//Account Number Events
+$('#accountnumber').blur(panBlur);
 
-  $('#accountnumber').bind("paste", function(e) {
-    panPaste(e);
-  });
+$('#accountnumber').bind("paste", panPaste);
 
-  //keypress
-  $("#accountnumber").keypress(function(e) {
-    panKeyPress(e);
-  });
+$("#accountnumber").keypress(panKeyPress);
 
-  $('#cvc').blur(function() {
-    cvcBlur();
-  })
-  //paste event
-  $('#cvc').bind("paste", function(e) {
-    cvcPaste(e);
-  });
+// CVC Events
+$('#cvc').blur(cvcBlur)
 
-  //keypress
-  $("#cvc").keypress(function(e) {
-    cvcKeyPress(e);
-  });
+$('#cvc').bind("paste", cvcPaste);
+
+$("#cvc").keypress(cvcKeyPress);

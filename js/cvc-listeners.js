@@ -1,17 +1,13 @@
-function validateAndUpdateCVC(cvc){
- //get pan
-  var pan = $("#accountnumber").val();
+/**
+ * @file cvc-listeners-js
+ * listener functions for cvc events
+ */
 
-  //strip spaces  
-  pan = stripSpaces(pan);
-
-  //if cvv is not empty run cvv validations
-  var cvcErrs = cvcValidations(pan, cvc)
-
-  //update dom
-  cvcValidUi(cvcErrs);
-}
-
+/**
+ * @function cvcKeyPress 
+ * handle cvc keypress events 
+ * @param {Object} e - event object
+ */
 function cvcKeyPress(e) { 
   var charCode = e.which || e.keyCode;
 
@@ -22,6 +18,10 @@ function cvcKeyPress(e) {
   }
 }
 
+/**
+ * @function cvcBlur 
+ * handle cvc blur events 
+ */
 function cvcBlur() {
   //get pan
   var cvc = $("#cvc").val();
@@ -38,6 +38,11 @@ function cvcBlur() {
   cvcValidUi(cvcErrs);
 }
 
+/**
+ * @function cvcPaste 
+ * handle cvc paste events 
+ * @param {Object} e - event object
+ */
 function cvcPaste(e) {
   //get cvc
   var cvc = e.originalEvent.clipboardData.getData('text');

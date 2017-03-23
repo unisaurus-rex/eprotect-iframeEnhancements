@@ -1,3 +1,13 @@
+/**
+ * @file pan-listeners-js
+ * listener functions for pan events
+ */
+
+/**
+ * @function panKeyPress 
+ * handle pan keypress events 
+ * @param {Object} e - event object
+ */
 function panKeyPress(e) { 
   console.log("pan key press")
   var charCode = e.which || e.keyCode;
@@ -14,12 +24,12 @@ function panKeyPress(e) {
 
     //get pan
     var pan = $("#accountnumber").val();
-
+    
+    //update pan
+    pan = pan +c;
+    
     //strip of white space
     pan = stripSpaces(pan);
-
-    //add keypressed
-    //pan = pan + c;
 
     //update dom with formatted pan
     $("#accountnumber").val(formatPan(pan));
@@ -32,6 +42,10 @@ function panKeyPress(e) {
   }
 }
 
+/**
+ * @function panBlur 
+ * handle pan blur events 
+ */
 function panBlur() {
   //get pan
   var pan = $("#accountnumber").val();
@@ -62,6 +76,11 @@ function panBlur() {
   }
 }
 
+/**
+ * @function panPaste 
+ * handle pan paste events 
+ * @param {Object} e - event object
+ */
 function panPaste(e) {
   //get pan
   var pan = e.originalEvent.clipboardData.getData('text');
