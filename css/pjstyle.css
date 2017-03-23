@@ -42,7 +42,7 @@ select[name="expMonth"] {
 .error {
     color: #a94442
 }
-.error input {
+.error input, :invalid input {
     border-color: #a94442;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset
 }
@@ -57,7 +57,7 @@ input::-moz-placeholder {
     color: #999;
     opacity: 1
 }
-.error-872:after {
+#numberDiv.error-872:after {
     content: "Please Re-Enter Your Account Number.";
     font-weight: normal;
     font-style: italic;
@@ -94,49 +94,49 @@ input#cvv {
 #cvvLabelText {
     text-transform: capitalize
 }
-.error-881:after {
+#numberDiv.error-881:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
     display: block;
     content: "Card validation num not numeric"
 }
-.error-882:after {
+#cvvDiv.error-882:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
     display: block;
     content: "Please Re-Enter Security Code"
 }
-.error-883:after {
+#cvvDiv.error-883:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
     display: block;
     content: "Card validation num too long"
 }
-.error-873:after {
+#numberDiv.error-873:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
     display: block;
     content: "Account number too long."
 }
-.error-874:after {
+#numberDiv.error-874:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
     display: block;
     content: "Account number not numeric."
 }
-.error-876:after {
+#numberDiv.error-876:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
     display: block;
     content: "Account number invalid."
 }
-.error-871:after {
+#numberDiv.error-871:after {
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem;
@@ -154,3 +154,159 @@ input#cvv {
 .expDateDiv label {
     margin-top: 20px
 }
+
+/* Additional Error, Validation, & Input Style
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus, input[type="search"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus, textarea:focus, select:focus {
+    box-shadow: 0px 0px 5px 0px rgba(98,98,98,0.75);
+    outline: none;
+    border-color: #1abc8b; }
+input[type="text"].invalid,select.invalid {
+    border-color: #a94442 }
+input[type="text"].valid, select.valid {
+    border-color: #148f6a; }
+#accountNumberLabelText.valid:after,
+#expDateLabelText.valid:after,
+#cvvLabelText.valid:after {
+  font-family: FontAwesome;
+   content: "\f058";
+   color: #148f6a;
+   padding-left: .5em; }
+#accountNumberLabelText.invalid:after,
+#expDateLabelText.invalid:after,
+#cvvLabelText.invalid:after {
+  font-family: FontAwesome;
+   content: "\f057";
+   color: #df2241;
+   padding-left: .5em; }
+label.valid:after {
+   font-family: FontAwesome;
+   content: "\f058";
+   padding-left: .5em;
+   color:#148f6a;}
+label.invalid:after {
+   font-family: FontAwesome;
+   content: "\f057";
+   padding-left: .5em;
+   color:#df2241;}
+
+
+/* Tooltip
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    display: none;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #fcfcfc;
+	  border: 1px solid #ccc;
+    color: #222;
+    text-align: center;
+    border-radius: 2px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 5px;
+    width: 300px;
+    margin-left: -150px;
+    opacity: 0;
+    transition: opacity 1s}
+.tooltip .tooltiptext img {
+    display: inline-block;
+    max-width: 45%;}
+.tooltip .tooltiptext::after {    /* Tooltip arrow */
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ccc transparent transparent transparent;}    
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    display: unset;
+    display: block;
+    opacity: 1;}
+#numTip.tooltip:hover .tooltiptext:before {
+    content:"CSS content text for card number:";}
+#expTip.tooltip:hover .tooltiptext:before {
+    content:"CSS content text for expiration date"}
+#cvcTip.tooltip:hover .tooltiptext:before {
+    display: block;  
+    content:"Your tool tip content here! Idealy, this should be short and sweet"}
+
+/* Modals
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: To remove modal functionality add "display:none;" to the class modals.
+To add modal functionality remove "display:none;" from class modals
+*/
+
+.modals{
+  /* To remove modal functionality add "display:none;" to the class modals" */
+  /* To add modal functionality remove "display:none;" from class modals*/
+  /*display: none; */
+}
+#accountnumberModal:before{
+  content: "CSS content text for card number";}
+#expDateModal:before{
+  content: "CSS content text for expiration date";}
+#cvvModal:before{
+  content: "Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl.";}
+.blocker {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.75);
+  text-align: center;}
+.blocker:before{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.05em;}
+.blocker.behind {
+  background-color: transparent;}
+.modal {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  box-sizing: border-box;
+  width: 90%;
+  background: #fff;
+  padding: 15px 30px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+  text-align: left;}
+.modal a.close-modal {
+  position: absolute;
+  top: -2px;
+  right: 5px;
+  display: block;
+  text-decoration: none;
+  font-weight: 600;}
+.modal a.close-modal:after {
+  padding-left: .5em;
+  content: "\f057";
+  font-family: FontAwesome;}    
