@@ -5,14 +5,11 @@
 
 //Account Number Events
 $('#accountnumber').blur(panBlur);
-
 $('#accountnumber').bind("paste", panPaste);
-
 $("#accountnumber").keypress(panKeyPress);
+$("#accountnumber").keyup(panKeyUp);
 
 // CVC Events
 $('#cvc').blur(cvcBlur)
-
 $('#cvc').bind("paste", cvcPaste);
-
 $("#cvc").keypress(cvcKeyPress);

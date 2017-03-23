@@ -32,13 +32,34 @@ function panKeyPress(e) {
     pan = stripSpaces(pan);
 
     //update dom with formatted pan
-    $("#accountnumber").val(formatPan(pan));
+    //$("#accountnumber").val(formatPan(pan));
 
     //update card icon based on card type
     var type = detectCardTypePartial(pan);
     iconSwitch(type);
 
-    return false;
+    return true;
+  }
+}
+
+/**
+ * @function panKeyUp 
+ * handle pan keyup events 
+ * @param {Object} e - event object
+ */
+function panKeyUp(e){
+  //if number do below
+  var charCode = e.which || e.keyCode;
+  //console.log(e);
+
+  if (charCode >= 96 && charCode <= 105)
+    charCode = charCode = 48;
+
+  var c = String.fromCharCode(charCode);
+  
+  if ( !isIneligible(c) ){
+    var pan = $("#accountnumber").val();
+    $("#accountnumber").val(formatPan(pan));  
   }
 }
 
