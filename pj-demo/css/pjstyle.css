@@ -1,0 +1,156 @@
+iframe[id="vantiv-payframe"] {
+    height: 380px
+}
+*:before,
+*:after {
+    box-sizing: border-box
+}
+body {
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    margin: 0;
+    padding: 0
+}
+label {
+    width: 100%;
+    margin-bottom: 8px;
+    float: left;
+    display: block;
+    font-weight: 700;
+    max-width: 100%
+}
+input,
+select {
+    max-width: 100%;
+    width: 100%;
+    float: left;
+    padding: 0.3em;
+    border: 1px solid #808080;
+    border-radius: 4px;
+    box-shadow: inset 0px 2px 4px -1px rgba(98, 98, 98, 0.2);
+    display: block;
+    font-size: 1.125rem;
+    height: 40px;
+    line-height: 1.5rem;
+    margin-bottom: 15px
+}
+select[name="expMonth"] {
+    margin-bottom: 8px
+}
+.error {
+    color: #a94442
+}
+.error input {
+    border-color: #a94442;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset
+}
+option {
+    color: #000000;
+    opacity: 1
+}
+* {
+    box-sizing: border-box
+}
+input::-moz-placeholder {
+    color: #999;
+    opacity: 1
+}
+.error-872:after {
+    content: "Please Re-Enter Your Account Number.";
+    font-weight: normal;
+    font-style: italic;
+    color: #df2241;
+    font-size: 0.875rem
+}
+#expDividerText {
+    display: none
+}
+#expMonthDiv select {
+    margin-bottom: 16px
+}
+#expDateLabelText {
+    visibility: hidden
+}
+#expDateLabelBefore:after {
+    content: "Expiration Date"
+}
+.positionNumberDiv {
+    width: 55%
+}
+.positionCvvDiv {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%
+}
+input#cvv {
+    width: 55%
+}
+#accountNumberLabelText {
+    text-transform: capitalize
+}
+#cvvLabelText {
+    text-transform: capitalize
+}
+.error-881:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Card validation num not numeric"
+}
+.error-882:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Please Re-Enter Security Code"
+}
+.error-883:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Card validation num too long"
+}
+.error-873:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Account number too long."
+}
+.error-874:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Account number not numeric."
+}
+.error-876:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Account number invalid."
+}
+.error-871:after {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem;
+    display: block;
+    content: "Account number not mod10."
+}
+.error input {
+    border-color: #df2241;
+    margin-bottom: 0;
+    background-color: #ffe6e8
+}
+.error {
+    color: #df2241
+}
+.expDateDiv label {
+    margin-top: 20px
+}
