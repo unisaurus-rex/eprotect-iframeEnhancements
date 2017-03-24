@@ -13,3 +13,9 @@ $("#accountnumber").keyup(panKeyUp);
 $('#cvc').blur(cvcBlur)
 $('#cvc').bind("paste", cvcPaste);
 $("#cvc").keypress(cvcKeyPress);
+
+// Expiration Events
+$('#expMonth').blur(handleMonthEvent);
+$('#expMonth').change(handleMonthEvent);
+$('#expYear').blur(handleYearEvent);
+$('#expYear').change(handleYearEvent);
