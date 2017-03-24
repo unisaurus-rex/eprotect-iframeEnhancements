@@ -254,7 +254,7 @@ To add modal functionality remove "display:none;" from class modals
   /*display: none; */
 }
 #accountnumberModal:before{
-  content: "CSS content text for card number";}
+  content: "If you are using a Prepaid or Reloadable Credit Card, your Financial Institution may place an additional 15-25% authorization hold on restaurant purchases to cover anticipated tip amount. For questions about your specific card, please call the customer service number located on your card. If your order total, any included tip amount, and the additional 15-25% authorization hold exceeds the amount of funds available on the Prepaid or Reloadable card, your card may be declined. Once your purchase is complete, you will be charged the amount of the purchase plus any tip amount that you may have added. Your Financial Institution will remove the hold that included the 15-25% additional amount. Removal of the hold could take 3-30 business days depending on the financial institution.";}
 #expDateModal:before{
   content: "CSS content text for expiration date";}
 #cvvModal:before{
