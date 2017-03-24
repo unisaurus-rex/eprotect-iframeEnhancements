@@ -203,14 +203,14 @@ label.invalid:after {
     display: none;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #fcfcfc;
-	  border: 1px solid #ccc;
+	border: 1px solid #ccc;
     color: #222;
     text-align: center;
     border-radius: 2px;
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 110%;
+    top: 100%;
     left: 5px;
     width: 300px;
     margin-left: -150px;
@@ -222,7 +222,7 @@ label.invalid:after {
 .tooltip .tooltiptext::after {    /* Tooltip arrow */
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -258,7 +258,7 @@ To add modal functionality remove "display:none;" from class modals
 #expDateModal:before{
   content: "CSS content text for expiration date";}
 #cvvModal:before{
-  content: "Your tool tip content here! aslkdhaklaskl skljsfadj  sdjfasdflj   asdl;jfasd[jasfopas. sdlkhasdfklasd sdkjsdfkjsdfl.";}
+  content: "American Express – The card verification number is the 4 digit code located on the front of your card above your credit card number. MasterCard, VISA & Discover – The card verification number is the last 3 digits of the number located on the back of your card next to your signature.";}
 .blocker {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -268,7 +268,7 @@ To add modal functionality remove "display:none;" from class modals
   padding: 20px;
   box-sizing: border-box;
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.55);
   text-align: center;}
 .blocker:before{
   content: "";
@@ -282,10 +282,13 @@ To add modal functionality remove "display:none;" from class modals
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  font-size: 12px;
+  line-height: normal;
   z-index: 2;
   max-width: 500px;
   box-sizing: border-box;
   width: 90%;
+  max-height: 300px;
   background: #fff;
   padding: 15px 30px;
   -webkit-border-radius: 8px;
@@ -293,11 +296,11 @@ To add modal functionality remove "display:none;" from class modals
   -o-border-radius: 8px;
   -ms-border-radius: 8px;
   border-radius: 8px;
-  -webkit-box-shadow: 0 0 10px #000;
-  -moz-box-shadow: 0 0 10px #000;
-  -o-box-shadow: 0 0 10px #000;
-  -ms-box-shadow: 0 0 10px #000;
-  box-shadow: 0 0 10px #000;
+  -webkit-box-shadow: 0 0 5px #000;
+  -moz-box-shadow: 0 0 5px #000;
+  -o-box-shadow: 0 0 5px #000;
+  -ms-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000;
   text-align: left;}
 .modal a.close-modal {
   position: absolute;
@@ -309,4 +312,24 @@ To add modal functionality remove "display:none;" from class modals
 .modal a.close-modal:after {
   padding-left: .5em;
   content: "\f057";
-  font-family: FontAwesome;}    
+  font-family: FontAwesome;}
+
+     /* Icons and Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */ 
+  #ccicon {
+    position: absolute;
+    right: 46%;
+    top: 11%;
+  }
+
+    /* Images
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+img {
+width: auto\9;
+height: auto;
+width: 100%;
+max-width: 150px;
+vertical-align: middle;
+border: 0;
+-ms-interpolation-mode: bicubic;}    
