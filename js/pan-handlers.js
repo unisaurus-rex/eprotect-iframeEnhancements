@@ -9,7 +9,6 @@
  * @param {Object} e - event object
  */
 function panKeyPress(e) { 
-  console.log("pan key press")
   var charCode = e.which || e.keyCode;
 
   if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -50,7 +49,6 @@ function panKeyPress(e) {
 function panKeyUp(e){
   //if number do below
   var charCode = e.which || e.keyCode;
-  //console.log(e);
 
   if (charCode >= 96 && charCode <= 105)
     charCode = charCode = 48;

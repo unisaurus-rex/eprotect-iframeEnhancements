@@ -143,23 +143,21 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script type="text/javascript"  src="js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="js/init.js"></script>
+  <script type="text/javascript" src="js/utils.js"></script>
 
-  <!-- Validation Scripts -->
+  <!-- Validation Scripts (uses jquery and utils)-->
   <script type="text/javascript" src="js/cvc-validation.js"></script>
   <script type="text/javascript" src="js/expiration-validation.js"></script>
   <script type="text/javascript" src="js/pan-validation.js"></script>
 
-  <!-- Validation Utils -->
+  <!-- Format Utils (Uses Utils)-->
   <script type="text/javascript" src="js/formatPan.js"></script>
-  <script type="text/javascript" src="js/ineligible-chars.js"></script>
-  <script type="text/javascript" src="js/utils.js"></script>
 
   <!-- Scripts that use previous scripts -->
   <script type="text/javascript" src="js/form-ux.js"></script>
   <script type="text/javascript" src="js/validation-collections.js"></script>
-  
-  <script type="text/javascript" src="js/pan-listeners.js"></script>
-  <script type="text/javascript" src="js/cvc-listeners.js"></script>
+  <script type="text/javascript" src="js/pan-handlers.js"></script>
+  <script type="text/javascript" src="js/cvc-handlers.js"></script>
   <script type="text/javascript" src="js/expiration-handlers.js"></script>
   <script type="text/javascript" src="js/validation-listeners.js"></script>
 
@@ -167,7 +165,6 @@
 
   <script>
    init();
-   iconSwitch();
   </script>
   <!-- End Document
        –––––––––––––––––––––––––––––––––––––––––––––––––– -->

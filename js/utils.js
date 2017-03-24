@@ -66,4 +66,62 @@ function errLookUp(func){
   }
   else return "";
 }
-window.errLookUp = errLookUp;
+
+/**
+ * @function notNumeric
+ * @param {String} str
+ * @returns {Boolean} return true if the input string contains non-numeric characters
+ */
+function notNumeric(str) {
+  // regex that matches 1 or non-numeric character 
+  var re = /\D+/;
+  return re.test(str); 
+}
+
+/**
+ * Return card type from pan
+ * @function detectCardTypePartial
+ * @param {String} number 
+ * @returns {String}
+ */
+function detectCardTypePartial(pan) {
+  var re = {
+    //visa: 4
+    visa: /^4/,
+    //mastercard 51-55 and 22-27
+    mastercard: /^(5[1-5]|2[2-7])/, 
+    //amex 34, 37
+    amex: /^3[47]/, 
+    //jcb 35
+    jcb: /^35/, 
+    //unionpay 62, 88
+    unionpay: /^(62|88)/, 
+    //diners club 30, 36, 38, 39
+    diners: /^(30|36|38|39)/, 
+    //dankort 5019
+    dankort: /^5019/, 
+    //forbrugsforeningen 600
+    forbrugsforeningen: /^600/,
+    //maestro 5018, 502, 503, 506, 56, 58, 639, 6220, 67
+    maestro: /^(5018|502|503|506|56|58|639|6220|67)/, 
+    //discover: 60, 64, 65, 622
+    discover: /^(60|6[4,5]|622)/ 
+  };
+
+  for(var key in re) {
+    if(re[key].test(pan)) {
+        return key;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * @function isIneligible
+ * @param {String} char - character to check
+ * @return {Boolean} true if character is not numeric 
+ */
+function isIneligible(char) {
+  var re = /^\D$/; // matches any length one string with non-numeric character
+  return re.test(char);
+}

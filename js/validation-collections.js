@@ -14,7 +14,7 @@ function panValidations(pan) {
   var errorMessages = [];
   var err = "";
 
-  if(panNotNumeric(pan)) {
+  if(notNumeric(pan)) {
     err = errLookUp('panNotNumeric');
     if(err.length !== 0) {
       errorMessages.push(err);
@@ -62,7 +62,7 @@ function cvcValidations(pan, cvc) {
   var errorMessages = [];
   var err = "";
 
-  if(cvcNotNumeric(cvc)) {
+  if(notNumeric(cvc)) {
     err = errLookUp('cvcNotNumeric');
     if(err.length !== 0) {
       errorMessages.push(err);
