@@ -19,3 +19,13 @@ $('#expMonth').blur(handleMonthEvent);
 $('#expMonth').change(handleMonthEvent);
 $('#expYear').blur(handleYearEvent);
 $('#expYear').change(handleYearEvent);
+
+//clear success and errors on focus
+$("#cvc").focus( function(e){
+	var elements = $('#cvvDiv, #cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
+	elements.removeClass();
+});
+$("#accountnumber").focus( function(e){
+	var elements = $('#numberDiv,#accountnumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
+	elements.removeClass();
+});

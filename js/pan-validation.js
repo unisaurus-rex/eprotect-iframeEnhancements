@@ -73,12 +73,12 @@ function panLong(pan) {
  * @param {String} pan
  * @returns {Boolean} return true if the pan contains non-numeric characters
  */
-function panNotNumeric(pan) {
-  // regex that matches 1 or non-numeric character 
-  var re = /\D+/;
-  return re.test(pan); 
-  
-}
+//function panNotNumeric(pan) {
+//  // regex that matches 1 or non-numeric character 
+//  var re = /\D+/;
+//  return re.test(pan); 
+  //
+//}
 
 
 /**
@@ -95,5 +95,3 @@ function doubleDigit(num) {
 
   return twice;
 }
-
-window.panLong = panLong;
