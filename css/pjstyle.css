@@ -1,5 +1,6 @@
 iframe[id="vantiv-payframe"] {
     height: 380px
+    min-width: 550; /* To keep the absolute positions okay for anything above mobile */
 }
 *:before,
 *:after {
@@ -40,11 +41,12 @@ select[name="expMonth"] {
     margin-bottom: 8px
 }
 .error {
-    color: #a94442
+    color: #a94442;
 }
 .error input, :invalid input {
     border-color: #a94442;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #df2241
 }
 option {
     color: #000000;
@@ -61,9 +63,9 @@ input::-moz-placeholder {
     content: "Please Re-Enter Your Account Number.";
     font-weight: normal;
     font-style: italic;
-    color: #df2241;
     font-size: 0.875rem
 }
+
 #expDividerText {
     display: none
 }
@@ -83,11 +85,12 @@ input::-moz-placeholder {
     position: absolute;
     top: 0;
     right: 0;
-    width: 40%
+    width: 42%
 }
 input#cvv {
     width: 55%
 }
+
 #accountNumberLabelText {
     text-transform: capitalize
 }
@@ -143,6 +146,12 @@ input#cvv {
     display: block;
     content: "Account number not mod10."
 }
+#expDateDiv.invalid:after {
+    content: "Please select valid date";
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.875rem
+}
 .error input {
     border-color: #df2241;
     margin-bottom: 0;
@@ -165,8 +174,12 @@ input[type="text"].invalid,select.invalid {
     border-color: #a94442 }
 input[type="text"].valid, select.valid {
     border-color: #148f6a; }
+#expDateLabelText.valid:after,#expDateLabelText.invalid:after {
+    visibility: visible;
+}    
 #accountNumberLabelText.valid:after,
 #expDateLabelText.valid:after,
+#expDateLabelBefore.valid:after,,
 #cvvLabelText.valid:after {
   font-family: FontAwesome;
    content: "\f058";
@@ -174,6 +187,7 @@ input[type="text"].valid, select.valid {
    padding-left: .5em; }
 #accountNumberLabelText.invalid:after,
 #expDateLabelText.invalid:after,
+#expDateLabelBefore.invalid:after,
 #cvvLabelText.invalid:after {
   font-family: FontAwesome;
    content: "\f057";
@@ -196,13 +210,13 @@ label.invalid:after {
 
 .tooltip {
     position: relative;
-    display: inline-block;
+    display: none; /* To turn on tooltips just set display to something else than none */
     text-decoration: none;}
 .tooltip .tooltiptext {
     visibility: hidden;
     display: none;
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #fcfcfc;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #fff;
 	border: 1px solid #ccc;
     color: #222;
     text-align: center;
@@ -258,6 +272,7 @@ To add modal functionality remove "display:none;" from class modals
 #expDateModal:before{
   content: "CSS content text for expiration date";}
 #cvvModal:before{
+  display: block;
   content: "American Express – The card verification number is the 4 digit code located on the front of your card above your credit card number. MasterCard, VISA & Discover – The card verification number is the last 3 digits of the number located on the back of your card next to your signature.";}
 .blocker {
   position: fixed;
@@ -267,8 +282,6 @@ To add modal functionality remove "display:none;" from class modals
   z-index: 1;
   padding: 20px;
   box-sizing: border-box;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.55);
   text-align: center;}
 .blocker:before{
   content: "";
@@ -282,9 +295,10 @@ To add modal functionality remove "display:none;" from class modals
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  font-size: 12px;
+  font-size: .85em;
   line-height: normal;
   z-index: 2;
+  overflow-y: auto;
   max-width: 500px;
   box-sizing: border-box;
   width: 90%;
@@ -295,7 +309,7 @@ To add modal functionality remove "display:none;" from class modals
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
   -ms-border-radius: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 0 5px #000;
   -moz-box-shadow: 0 0 5px #000;
   -o-box-shadow: 0 0 5px #000;
@@ -304,7 +318,7 @@ To add modal functionality remove "display:none;" from class modals
   text-align: left;}
 .modal a.close-modal {
   position: absolute;
-  top: -2px;
+  top: 1px;
   right: 5px;
   display: block;
   text-decoration: none;
@@ -319,8 +333,9 @@ To add modal functionality remove "display:none;" from class modals
   #ccicon {
     position: absolute;
     right: 46%;
-    top: 11%;
-  }
+    top: 11%;}
+  .fa.fa-question-circle {
+      color:#333; }
 
     /* Images
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
