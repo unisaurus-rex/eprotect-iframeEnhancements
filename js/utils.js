@@ -88,22 +88,31 @@ function detectCardTypePartial(pan) {
   var re = {
     //visa: 4
     visa: /^4/,
+
     //mastercard 51-55 and 22-27
     mastercard: /^(5[1-5]|2[2-7])/, 
+    
     //amex 34, 37
     amex: /^3[47]/, 
+    
     //jcb 35
-    jcb: /^35/, 
+    //jcb: /^35/, 
+    
     //unionpay 62, 88
-    unionpay: /^(62|88)/, 
+    //unionpay: /^(62|88)/, 
+    
     //diners club 30, 36, 38, 39
-    diners: /^(30|36|38|39)/, 
+    //diners: /^(30|36|38|39)/, 
+    
     //dankort 5019
-    dankort: /^5019/, 
+    //dankort: /^5019/, 
+    
     //forbrugsforeningen 600
-    forbrugsforeningen: /^600/,
+    //forbrugsforeningen: /^600/,
+    
     //maestro 5018, 502, 503, 506, 56, 58, 639, 6220, 67
-    maestro: /^(5018|502|503|506|56|58|639|6220|67)/, 
+    //maestro: /^(5018|502|503|506|56|58|639|6220|67)/, 
+    
     //discover: 60, 64, 65, 622
     discover: /^(60|6[4,5]|622)/ 
   };

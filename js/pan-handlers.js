@@ -9,34 +9,13 @@
  * @param {Object} e - event object
  */
 function panKeyPress(e) { 
+  //get character code
   var charCode = e.which || e.keyCode;
 
+  //if ineligible character return false
   if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
   }else{
-
-    if (charCode == 8 || charCode == 9){
-      return true;
-    }
-    
-    var c = String.fromCharCode(charCode);
-
-    //get pan
-    var pan = $("#accountnumber").val();
-    
-    //update pan
-    pan = pan +c;
-    
-    //strip of white space
-    pan = stripSpaces(pan);
-
-    //update dom with formatted pan
-    //$("#accountnumber").val(formatPan(pan));
-
-    //update card icon based on card type
-    var type = detectCardTypePartial(pan);
-    iconSwitch(type);
-
     return true;
   }
 }
@@ -50,14 +29,23 @@ function panKeyUp(e){
   //if number do below
   var charCode = e.which || e.keyCode;
 
+  //if charCode maps to a number pad key, subtract 48
+  //48 is the offset to the number key (row)
   if (charCode >= 96 && charCode <= 105)
     charCode = charCode = 48;
 
   var c = String.fromCharCode(charCode);
   
+  //if char is numeric
   if ( !isIneligible(c) ){
+    
+    //update field with formatted pan
     var pan = $("#accountnumber").val();
     $("#accountnumber").val(formatPan(pan));  
+    
+    //update card icon based on card type
+    var type = detectCardTypePartial(pan);
+    iconSwitch(type);
   }
 }
 
