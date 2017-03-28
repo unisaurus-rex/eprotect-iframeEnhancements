@@ -12,6 +12,11 @@ function panKeyPress(e) {
   //get character code
   var charCode = e.which || e.keyCode;
 
+  //allow arrow keys in firefox
+  if (charCode >= 37 && charCode <= 40){
+    return true;
+  }
+
   //if ineligible character return false
   if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
