@@ -26,6 +26,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -109,7 +111,32 @@
   </div>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
     crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/init.js"></script>
+  <script type="text/javascript" src="js/utils.js"></script>
+
+  <!-- Validation Scripts -->
+  <script type="text/javascript" src="js/cvc-validation.js"></script>
+  <script type="text/javascript" src="js/expiration-validation.js"></script>
+  <script type="text/javascript" src="js/pan-validation.js"></script>
+
+  <!-- Validation Utils -->
+  <script type="text/javascript" src="js/formatPan.js"></script>
+
+  <!-- Scripts that use previous scripts -->
   <script type="text/javascript" src="js/form-ux.js"></script>
+  <script type="text/javascript" src="js/validation-collections.js"></script>
+  
+  <script type="text/javascript" src="js/pan-handlers.js"></script>
+  <script type="text/javascript" src="js/cvc-handlers.js"></script>
+  <script type="text/javascript" src="js/expiration-handlers.js"></script>
+  <script type="text/javascript" src="js/validation-listeners.js"></script>
+
+  <script type="text/javascript" src="js/jquery-modal.min.js"></script>
+
+  <script>
+   init();
+   iconSwitch();
+  </script>
 </body>
 
 

@@ -26,8 +26,8 @@ function init(){
  * @function clearFields
  */
 function clearFields(){
-	document.getElementById("accountnumber").value = "";
-	document.getElementById("cvc").value = "";
+	document.getElementById("accountNumber").value = "";
+	document.getElementById("cvv").value = "";
 	document.getElementById("expMonth").value = "";
 	document.getElementById("expYear").value = "";
 }

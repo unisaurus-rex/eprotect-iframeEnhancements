@@ -24,11 +24,11 @@ function cvcKeyPress(e) {
  */
 function cvcBlur() {
   //get pan
-  var cvc = $("#cvc").val();
+  var cvc = $("#cvv").val();
   //strip spaces  
   cvc = stripSpaces(cvc);
   //get pan
-  var pan = $("#accountnumber").val();
+  var pan = $("#accountNumber").val();
   //strip spaces  
   pan = stripSpaces(pan);
   //if cvv is not empty run cvv validations
@@ -48,10 +48,10 @@ function cvcPaste(e) {
   var cvc = e.originalEvent.clipboardData.getData('text');
 
   //update dom with cvc
-  $("#cvc").val(cvc);
+  $("#cvv").val(cvc);
 
   //get pan
-  var pan = $("#accountnumber").val();
+  var pan = $("#accountNumber").val();
   //strip spaces  
   pan = stripSpaces(pan);
   //if cvv is not empty run cvv validations

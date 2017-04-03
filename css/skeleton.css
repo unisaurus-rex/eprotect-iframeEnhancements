@@ -368,7 +368,7 @@ To add modal functionality remove "display:none;" from class modals
   /* To add modal functionality remove "display:none;" from class modals*/
   /*display: none; */
 }
-#accountnumberModal:before{
+#accountNumberModal:before{
   content: "CSS content text for card number";}
 #expDateModal:before{
   content: "CSS content text for expiration date";}

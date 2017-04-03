@@ -39,7 +39,7 @@ function iconSwitch(cardvar) {
 
 function panValidUi(errs) {
 
-  var elements = $('#numberDiv,#accountnumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
+  var elements = $('#numberDiv,#accountNumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
   elements.removeClass();
 
   if (errs.length == 0) {
@@ -87,7 +87,7 @@ function yearValidUi(isValid) {
 }
 
 function cvcValidUi(errs) {
-  var elements = $('#cvvDiv, #cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
+  var elements = $('#cvvDiv, #cvv,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
   elements.removeClass();
 
   if (errs.length == 0) {

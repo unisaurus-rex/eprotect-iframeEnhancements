@@ -45,8 +45,8 @@ function panKeyUp(e){
   if ( !isIneligible(c) ){
     
     //update field with formatted pan
-    var pan = $("#accountnumber").val();
-    $("#accountnumber").val(formatPan(pan));  
+    var pan = $("#accountNumber").val();
+    $("#accountNumber").val(formatPan(pan));  
     
     //update card icon based on card type
     var type = detectCardTypePartial(pan);
@@ -60,13 +60,13 @@ function panKeyUp(e){
  */
 function panBlur() {
   //get pan
-  var pan = $("#accountnumber").val();
+  var pan = $("#accountNumber").val();
 
   //strip spaces  
   pan = stripSpaces(pan);
 
   //update dom with formatted pan
-  $("#accountnumber").val(formatPan(pan));
+  $("#accountNumber").val(formatPan(pan));
 
   //validate pan
   var panErrs = panValidations(pan);
@@ -79,7 +79,7 @@ function panBlur() {
   iconSwitch(type);
 
   //get cvv
-  var cvc = $("#cvc").val();
+  var cvc = $("#cvv").val();
 
   //if cvc has been filled out validate it and update dom
   if (cvc) {
@@ -101,7 +101,7 @@ function panPaste(e) {
   pan = stripSpaces(pan);
 
   //update dom with formatted pan
-  $("#accountnumber").val(formatPan(pan));
+  $("#accountNumber").val(formatPan(pan));
 
   //validate pan
   var panErrs = panValidations(pan);
@@ -114,7 +114,7 @@ function panPaste(e) {
   iconSwitch(type);
 
   //get cvv
-  var cvc = $("#cvc").val();
+  var cvc = $("#cvv").val();
 
   if (cvc) {
     //if cvv is not empty run cvv validations
