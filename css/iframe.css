@@ -352,7 +352,7 @@ label.invalid:after {
     content:"CSS content text for card number:";}
 #expTip.tooltip:hover .tooltiptext:before {
     content:"CSS content text for expiration date"}
-#cvcTip.tooltip:hover .tooltiptext:before {
+#cvvTip.tooltip:hover .tooltiptext:before {
     display: block;  
     content:"Your tool tip content here! Idealy, this should be short and sweet"}
 
