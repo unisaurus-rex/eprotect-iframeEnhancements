@@ -36,7 +36,13 @@ function iconSwitch(cardvar) {
   return cardvar;
 };
 
+/**
+ * Update the pan input field's css classes based on input's validity
+ * @function panValidUi
+  * @param {Boolean} isValid - true if pan input is valid
+  * @returns {Array} - array of strings that are the error classes to be added
 
+ */
 function panValidUi(errs) {
 
   var elements = $('#numberDiv,#accountNumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
@@ -85,7 +91,12 @@ function yearValidUi(isValid) {
   }
 
 }
-
+/**
+ * Update the cvc input field's css classes based on input's validity
+ * @function cvcValidUi
+  * @param {Boolean} isValid - true if cvc input is valid
+  * @returns {Array} - array of strings that are the error classes to be added
+ */
 function cvcValidUi(errs) {
   var elements = $('#cvvDiv, #cvv,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
   elements.removeClass();

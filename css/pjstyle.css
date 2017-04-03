@@ -1,11 +1,30 @@
-iframe[id="vantiv-payframe"] {
-    height: 380px
-    min-width: 550; /* To keep the absolute positions okay for anything above mobile */
+/******* Responsive iFrame MAGICKS!!!!!! *******
+The following iframe classes make the assumption that you will have some
+sort of ifram container to hold the actual iframe. This is needed so the
+iframe can be responsive in nature if you choose.
+*/
+
+.iframe-container {
+    position: relative;
+    height: 380px;
+    max-width: 100%;
+    overflow: hidden;
 }
+
+iframe[id="vantiv-payframe"] {
+    height: 380px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: none;
+}
+
 *:before,
 *:after {
     box-sizing: border-box
 }
+
 body {
     color: #333;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -14,6 +33,7 @@ body {
     margin: 0;
     padding: 0
 }
+
 label {
     width: 100%;
     margin-bottom: 8px;
@@ -22,6 +42,7 @@ label {
     font-weight: 700;
     max-width: 100%
 }
+
 input,
 select {
     max-width: 100%;
@@ -37,28 +58,36 @@ select {
     line-height: 1.5rem;
     margin-bottom: 15px
 }
+
 select[name="expMonth"] {
     margin-bottom: 8px
 }
+
 .error {
     color: #a94442;
 }
-.error input, :invalid input {
+
+.error input,
+    :invalid input {
     border-color: #a94442;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     color: #df2241
 }
+
 option {
     color: #000000;
     opacity: 1
 }
+
 * {
     box-sizing: border-box
 }
+
 input::-moz-placeholder {
     color: #999;
     opacity: 1
 }
+
 #numberDiv.error-872:after {
     content: "Please Re-Enter Your Account Number.";
     font-weight: normal;
@@ -69,24 +98,30 @@ input::-moz-placeholder {
 #expDividerText {
     display: none
 }
+
 #expMonthDiv select {
     margin-bottom: 16px
 }
+
 #expDateLabelText {
     visibility: hidden
 }
+
 #expDateLabelBefore:after {
     content: "Expiration Date"
 }
+
 .positionNumberDiv {
     width: 55%
 }
+
 .positionCvvDiv {
-    position: absolute;
+    position: absolute; /*This should be changed to relative if you want the form to be reponsive*/
     top: 0;
     right: 0;
     width: 42%
 }
+
 input#cvv {
     width: 55%
 }
@@ -94,9 +129,11 @@ input#cvv {
 #accountNumberLabelText {
     text-transform: capitalize
 }
+
 #cvvLabelText {
     text-transform: capitalize
 }
+
 #numberDiv.error-881:after {
     font-weight: normal;
     font-style: italic;
@@ -104,6 +141,7 @@ input#cvv {
     display: block;
     content: "Card validation num not numeric"
 }
+
 #cvvDiv.error-882:after {
     font-weight: normal;
     font-style: italic;
@@ -111,6 +149,7 @@ input#cvv {
     display: block;
     content: "Please Re-Enter Security Code"
 }
+
 #cvvDiv.error-883:after {
     font-weight: normal;
     font-style: italic;
@@ -118,6 +157,7 @@ input#cvv {
     display: block;
     content: "Card validation num too long"
 }
+
 #numberDiv.error-873:after {
     font-weight: normal;
     font-style: italic;
@@ -125,6 +165,7 @@ input#cvv {
     display: block;
     content: "Account number too long."
 }
+
 #numberDiv.error-874:after {
     font-weight: normal;
     font-style: italic;
@@ -132,6 +173,7 @@ input#cvv {
     display: block;
     content: "Account number not numeric."
 }
+
 #numberDiv.error-876:after {
     font-weight: normal;
     font-style: italic;
@@ -139,6 +181,7 @@ input#cvv {
     display: block;
     content: "Account number invalid."
 }
+
 #numberDiv.error-871:after {
     font-weight: normal;
     font-style: italic;
@@ -146,78 +189,110 @@ input#cvv {
     display: block;
     content: "Account number not mod10."
 }
+
 #expDateDiv.invalid:after {
     content: "Please select valid date";
     font-weight: normal;
     font-style: italic;
     font-size: 0.875rem
 }
+
 .error input {
     border-color: #df2241;
     margin-bottom: 0;
     background-color: #ffe6e8
 }
+
 .error {
     color: #df2241
 }
+
 .expDateDiv label {
     margin-top: 20px
 }
-
 /* Additional Error, Validation, & Input Style
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-input[type="text"]:focus, input[type="password"]:focus, input[type="tel"]:focus, input[type="search"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus, textarea:focus, select:focus {
-    box-shadow: 0px 0px 5px 0px rgba(98,98,98,0.75);
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+textarea:focus,
+select:focus {
+    box-shadow: 0px 0px 5px 0px rgba(98, 98, 98, 0.75);
     outline: none;
-    border-color: #1abc8b; }
-input[type="text"].invalid,select.invalid {
-    border-color: #a94442 }
-input[type="text"].valid, select.valid {
-    border-color: #148f6a; }
-#expDateLabelText.valid:after,#expDateLabelText.invalid:after {
+    border-color: #1abc8b;
+}
+
+input[type="text"].invalid,
+select.invalid {
+    border-color: #a94442
+}
+
+input[type="text"].valid,
+select.valid {
+    border-color: #148f6a;
+}
+
+#expDateLabelText.valid:after,
+#expDateLabelText.invalid:after {
     visibility: visible;
-}    
+}
+
 #accountNumberLabelText.valid:after,
 #expDateLabelText.valid:after,
-#expDateLabelBefore.valid:after,,
+#expDateLabelBefore.valid:after,
 #cvvLabelText.valid:after {
-  font-family: FontAwesome;
-   content: "\f058";
-   color: #148f6a;
-   padding-left: .5em; }
+    font-family: FontAwesome;
+    content: "\f058";
+    color: #148f6a;
+    padding-left: .5em;
+}
+
 #accountNumberLabelText.invalid:after,
 #expDateLabelText.invalid:after,
 #expDateLabelBefore.invalid:after,
 #cvvLabelText.invalid:after {
-  font-family: FontAwesome;
-   content: "\f057";
-   color: #df2241;
-   padding-left: .5em; }
+    font-family: FontAwesome;
+    content: "\f057";
+    color: #df2241;
+    padding-left: .5em;
+}
+
 label.valid:after {
-   font-family: FontAwesome;
-   content: "\f058";
-   padding-left: .5em;
-   color:#148f6a;}
+    font-family: FontAwesome;
+    content: "\f058";
+    padding-left: .5em;
+    color: #148f6a;
+}
+
 label.invalid:after {
-   font-family: FontAwesome;
-   content: "\f057";
-   padding-left: .5em;
-   color:#df2241;}
-
-
+    font-family: FontAwesome;
+    content: "\f057";
+    padding-left: .5em;
+    color: #df2241;
+}
 /* Tooltip
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* If you decide to completely opt=out of the tooltip option remove all the code from here to the next section*/
 
 .tooltip {
     position: relative;
-    display: none; /* To turn on tooltips just set display to something else than none */
-    text-decoration: none;}
+    display: none;
+    /* To turn on tooltips just set display to something else than none */
+    text-decoration: none;
+}
+
 .tooltip .tooltiptext {
     visibility: hidden;
     display: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #fff;
-	border: 1px solid #ccc;
+    border: 1px solid #ccc;
     color: #222;
     text-align: center;
     border-radius: 2px;
@@ -229,11 +304,16 @@ label.invalid:after {
     width: 300px;
     margin-left: -150px;
     opacity: 0;
-    transition: opacity 1s}
+    transition: opacity 1s
+}
+
 .tooltip .tooltiptext img {
     display: inline-block;
-    max-width: 45%;}
-.tooltip .tooltiptext::after {    /* Tooltip arrow */
+    max-width: 45%;
+}
+
+.tooltip .tooltiptext::after {
+    /* Tooltip arrow */
     content: "";
     position: absolute;
     bottom: 100%;
@@ -241,20 +321,28 @@ label.invalid:after {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #ccc transparent transparent transparent;}    
+    border-color: #ccc transparent transparent transparent;
+}
+
 .tooltip:hover .tooltiptext {
     visibility: visible;
     display: unset;
     display: block;
-    opacity: 1;}
-#numTip.tooltip:hover .tooltiptext:before {
-    content:"CSS content text for card number:";}
-#expTip.tooltip:hover .tooltiptext:before {
-    content:"CSS content text for expiration date"}
-#cvcTip.tooltip:hover .tooltiptext:before {
-    display: block;  
-    content:"Your tool tip content here! Idealy, this should be short and sweet"}
+    opacity: 1;
+}
 
+#numTip.tooltip:hover .tooltiptext:before {
+    content: "CSS content text for card number:";
+}
+
+#expTip.tooltip:hover .tooltiptext:before {
+    content: "CSS content text for expiration date"
+}
+
+#cvcTip.tooltip:hover .tooltiptext:before {
+    display: block;
+    content: "Your tool tip content here! Idealy, this should be short and sweet"
+}
 /* Modals
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*
@@ -262,89 +350,114 @@ Note: To remove modal functionality add "display:none;" to the class modals.
 To add modal functionality remove "display:none;" from class modals
 */
 
-.modals{
-  /* To remove modal functionality add "display:none;" to the class modals" */
-  /* To add modal functionality remove "display:none;" from class modals*/
-  /*display: none; */
+.modals {
+    /* To remove modal functionality add "display:none;" to the class modals" */
+    /* To add modal functionality remove "display:none;" from class modals*/
+    /*display: none; */
 }
-#accountnumberModal:before{
-  content: "If you are using a Prepaid or Reloadable Credit Card, your Financial Institution may place an additional 15-25% authorization hold on restaurant purchases to cover anticipated tip amount. For questions about your specific card, please call the customer service number located on your card. If your order total, any included tip amount, and the additional 15-25% authorization hold exceeds the amount of funds available on the Prepaid or Reloadable card, your card may be declined. Once your purchase is complete, you will be charged the amount of the purchase plus any tip amount that you may have added. Your Financial Institution will remove the hold that included the 15-25% additional amount. Removal of the hold could take 3-30 business days depending on the financial institution.";}
-#expDateModal:before{
-  content: "CSS content text for expiration date";}
-#cvvModal:before{
-  display: block;
-  content: "American Express – The card verification number is the 4 digit code located on the front of your card above your credit card number. MasterCard, VISA & Discover – The card verification number is the last 3 digits of the number located on the back of your card next to your signature.";}
-.blocker {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  z-index: 1;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;}
-.blocker:before{
-  content: "";
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -0.05em;}
-.blocker.behind {
-  background-color: transparent;}
-.modal {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  font-size: .85em;
-  line-height: normal;
-  z-index: 2;
-  overflow-y: auto;
-  max-width: 500px;
-  box-sizing: border-box;
-  width: 90%;
-  max-height: 300px;
-  background: #fff;
-  padding: 15px 30px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  -ms-border-radius: 8px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 0 5px #000;
-  -moz-box-shadow: 0 0 5px #000;
-  -o-box-shadow: 0 0 5px #000;
-  -ms-box-shadow: 0 0 5px #000;
-  box-shadow: 0 0 5px #000;
-  text-align: left;}
-.modal a.close-modal {
-  position: absolute;
-  top: 1px;
-  right: 5px;
-  display: block;
-  text-decoration: none;
-  font-weight: 600;}
-.modal a.close-modal:after {
-  padding-left: .5em;
-  content: "\f057";
-  font-family: FontAwesome;}
 
-     /* Icons and Misc
-–––––––––––––––––––––––––––––––––––––––––––––––––– */ 
-  #ccicon {
+#accountnumberModal:before {
+    content: "If you are using a Prepaid or Reloadable Credit Card, your Financial Institution may place an additional 15-25% authorization hold on restaurant purchases to cover anticipated tip amount. For questions about your specific card, please call the customer service number located on your card. If your order total, any included tip amount, and the additional 15-25% authorization hold exceeds the amount of funds available on the Prepaid or Reloadable card, your card may be declined. Once your purchase is complete, you will be charged the amount of the purchase plus any tip amount that you may have added. Your Financial Institution will remove the hold that included the 15-25% additional amount. Removal of the hold could take 3-30 business days depending on the financial institution.";
+}
+
+#expDateModal:before {
+    content: "CSS content text for expiration date";
+}
+
+#cvvModal:before {
+    display: block;
+    content: "American Express – The card verification number is the 4 digit code located on the front of your card above your credit card number. MasterCard, VISA & Discover – The card verification number is the last 3 digits of the number located on the back of your card next to your signature.";
+}
+
+.blocker {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.blocker:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.05em;
+}
+
+.blocker.behind {
+    background-color: transparent;
+}
+
+.modal {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    font-size: .85em;
+    line-height: normal;
+    z-index: 2;
+    overflow-y: auto;
+    max-width: 500px;
+    box-sizing: border-box;
+    width: 90%;
+    max-height: 300px;
+    background: #fff;
+    padding: 15px 30px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -o-border-radius: 8px;
+    -ms-border-radius: 8px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 5px #000;
+    -moz-box-shadow: 0 0 5px #000;
+    -o-box-shadow: 0 0 5px #000;
+    -ms-box-shadow: 0 0 5px #000;
+    box-shadow: 0 0 5px #000;
+    text-align: left;
+}
+
+.modal a.close-modal {
+    position: absolute;
+    top: 1px;
+    right: 5px;
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.modal a.close-modal:after {
+    padding-left: .5em;
+    content: "\f057";
+    font-family: FontAwesome;
+}
+/* Icons and Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#ccicon {
     position: absolute;
     right: 46%;
-    top: 11%;}
-  .fa.fa-question-circle {
-      color:#333; }
+    top: 11%;
+}
 
-    /* Images
+.fa.fa-question-circle {
+    color: #333;
+}
+/* Images (responsive)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 img {
-width: auto\9;
-height: auto;
-width: 100%;
-max-width: 150px;
-vertical-align: middle;
-border: 0;
--ms-interpolation-mode: bicubic;}    
+    width: auto\9;
+    height: auto;
+    width: 100%;
+    max-width: 150px;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}

@@ -1,7 +1,7 @@
 /*
-* Vantiv Skeleton V1 -- Based on Skeleton
+* Vantiv eProtect iFrame - loosely based on Skeleton: http://getskeleton.com/
 * Copyright 2017 -- Team Unisaurus Rex & Copyright 2014, Dave Gamache
-* www.getskeleton.com  &  https://github.com/unisaurus-rex
+* https://github.com/unisaurus-rex
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
 * 3/14/2017
@@ -117,7 +117,7 @@ a {
 a:hover {
   color: #0FA0CE; }
 
-  /* Images
+  /* Images (responsive)
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 img {
@@ -308,7 +308,7 @@ label.invalid:after {
      
 /* Tooltip
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+/* If you decide to completely opt-out of the tooltip option remove all the code from here to the next section*/
 .tooltip {
     position: relative;
     display: inline-block;
@@ -360,7 +360,7 @@ label.invalid:after {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*
 Note: To remove modal functionality add "display:none;" to the class modals.
-To add modal functionality remove "display:none;" from class modals
+To add modal functionality remove "display:none;" from class modals -OR- remove the entire section
 */
 
 .modals{
