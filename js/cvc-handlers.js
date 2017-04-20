@@ -4,21 +4,6 @@
  */
 
 /**
- * @function cvcKeyPress 
- * handle cvc keypress events 
- * @param {Object} e - event object
- */
-function cvcKeyPress(e) { 
-  var charCode = e.which || e.keyCode;
-
-  if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-      return false;
-  }else{
-    return true;
-  }
-}
-
-/**
  * @function cvcBlur 
  * handle cvc blur events 
  */

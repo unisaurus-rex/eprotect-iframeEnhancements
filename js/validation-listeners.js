@@ -6,13 +6,19 @@
 //Account Number Events
 $('#accountNumber').blur(panBlur);
 $('#accountNumber').bind("paste", panPaste);
-$("#accountNumber").keypress(panKeyPress);
+$('#accountNumber').alphanum({
+    allowSpace         : true,
+    allowNumeric       : true,
+    allowUpper         : false,
+    allowLower         : false
+});
+
 $("#accountNumber").keyup(panKeyUp);
 
 // CVC Events
 $('#cvv').blur(cvcBlur)
 $('#cvv').bind("paste", cvcPaste);
-$("#cvv").keypress(cvcKeyPress);
+$('#cvv').numeric();
 
 // Expiration Events
 $('#expMonth').blur(handleMonthEvent);

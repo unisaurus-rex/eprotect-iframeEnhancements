@@ -4,48 +4,28 @@
  */
 
 /**
- * @function panKeyPress 
- * handle pan keypress events 
- * @param {Object} e - event object
- */
-function panKeyPress(e) { 
-  //get character code
-  var charCode = e.which || e.keyCode;
-
-  //allow arrow keys in firefox
-  if (charCode >= 37 && charCode <= 40){
-    return true;
-  }
-
-  //if ineligible character return false
-  if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-      return false;
-  }else{
-    return true;
-  }
-}
-
-/**
  * @function panKeyUp 
  * handle pan keyup events 
  * @param {Object} e - event object
  */
 function panKeyUp(e){
-  //if number do below
+  //get charcode
   var charCode = e.which || e.keyCode;
 
   //if charCode maps to a number pad key, subtract 48
   //48 is the offset to the number key (row)
   if (charCode >= 96 && charCode <= 105)
-    charCode = charCode = 48;
+    charCode = charCode - 48;
 
+  //get character
   var c = String.fromCharCode(charCode);
   
   //if char is numeric
-  if ( !isIneligible(c) ){
+  if ( !isIneligible(c) || c==" "){
     
     //update field with formatted pan
     var pan = $("#accountNumber").val();
+      pan = stripSpaces(pan);
     $("#accountNumber").val(formatPan(pan));  
     
     //update card icon based on card type
@@ -53,7 +33,6 @@ function panKeyUp(e){
     iconSwitch(type);
   }
 }
-
 /**
  * @function panBlur 
  * handle pan blur events 
