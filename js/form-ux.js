@@ -9,113 +9,105 @@
  * @returns {String}
  */
 
+function iconSwitch(cardvar) {
+  var icon = $('#ccicon');
 
-var cardvar = "";//a dummy value for testing
-var panValid = true;
-var monthValid = false;
-var yearValid = true;
-var cvcValid = true;
-$('#accountnumber').blur(panValidUi); //On blur event listener that should be used on the input fields
-$('#accountnumber').blur(iconSwitch);
-$('#expMonth').blur(monthValidUi); //On blur event listener run the UI
-$('#expYear').blur(yearValidUi); //On blur event listener run the UI
-$('#cvc').blur(cvcValidUi); //On blur event listener run the UI
+  switch (cardvar) {
+  case 'amex':
+    icon.removeClass().addClass('fa fa-cc-amex fa-lg');
+    break;
 
+  case 'discover':
+    icon.removeClass().addClass('fa fa-cc-discover fa-lg');
+    break;
 
+  case 'mastercard':
+    icon.removeClass().addClass('fa fa-cc-mastercard fa-lg');
+    break;
 
-function iconSwitch() {
+  case 'visa':
+    icon.removeClass().addClass('fa fa-cc-visa fa-lg');
+    break;
 
-	var icon = $('#ccicon');
-
-	switch (cardvar) {
-		case 'amex':
-			icon.removeClass().addClass('fa fa-cc-amex fa-lg');
-			break;
-
-		case 'discover':
-			icon.removeClass().addClass('fa fa-cc-discover fa-lg');
-			break;
-
-		case 'mastercard':
-			icon.removeClass().addClass('fa fa-cc-mastercard fa-lg');
-			break;
-
-		case 'visa':
-			icon.removeClass().addClass('fa fa-cc-visa fa-lg');
-			break;
-
-		default:
-			icon.removeClass().addClass('fa fa-credit-card fa-lg');
-			break;
-	}
-	return cardvar;
-};
-
-function panValidUi() {
-	var elements = $('#accountnumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
-
-	if (panValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
-};
-
-function monthValidUi() {
-	var elements = $('#expMonth,#expMonthLabelBefore,#expMonthLabelAfter,#expDateLabelText')
-
-	if (monthValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
-	if (monthValid == false || yearValid == false) {
-		$('#expDateLabelText').removeClass().addClass('invalid')
-	}
-};
-
-function yearValidUi() {
-	var elements = $('#expYear,#expYearLabelBefore,#expYearLabelAfter,#expDateLabelText')
-
-	if (yearValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
-	if (monthValid == false || yearValid == false) {
-		$('#expDateLabelText').removeClass().addClass('invalid')
-	}
-};
-
-function cvcValidUi() {
-	var elements = $('#cvc,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
-
-	if (cvcValid == true) {
-		elements.removeClass().addClass('valid')
-	}
-	else {
-		elements.removeClass().addClass('invalid')
-	}
+  default:
+    icon.removeClass().addClass('fa fa-credit-card fa-lg');
+    break;
+  }
+  return cardvar;
 };
 
 /**
- * A function to change the inputs class valid to invalid
- * @function blurTest
+ * Update the pan input field's css classes based on input's validity
+ * @function panValidUi
+  * @param {Boolean} isValid - true if pan input is valid
+  * @returns {Array} - array of strings that are the error classes to be added
+
  */
+function panValidUi(errs) {
 
+  var elements = $('#numberDiv,#accountNumber,#accountNumberLabelBefore,#accountNumberLabelAfter,#accountNumberLabelText')
+  elements.removeClass();
 
-
-
+  if (errs.length == 0) {
+    elements.addClass('valid');
+  }
+  else {
+    for (var i =0; i< errs.length; i++){
+      elements.addClass( errs[i] );
+    }
+    elements.addClass("invalid");
+  }
+};
 
 /**
- * A simple DOM tester that logs the current state of certain variables
- * @function blurTest
+ * Update the expiration year field's css classes based on input's validity
+ * @function monthValidUi
+ * @param {Boolean} isValid - true if month input is valid
  */
+function monthValidUi(isValid) {
+  var elements = $('#expMonth,#expMonthLabelBefore,#expMonthLabelAfter,#expDateLabelText');
 
-function blurTest() {
-	console.log(cardvar);
+  if (isValid) {
+    elements.removeClass().addClass('valid');
+  }
+  else {
+    elements.removeClass().addClass('invalid');
+  }
 }
 
+/**
+ * Update the expiration year field's css classes based on the inputs validity
+ * @function yearValidUi
+ * @param {Boolean} isValid - true if year is valid
+ */
+function yearValidUi(isValid) {
+  var elements = $('#expYear,#expYearLabelBefore,#expYearLabelAfter,#expDateLabelText');
+
+  if (isValid) {
+    elements.removeClass().addClass('valid');
+  }
+  else {
+    elements.removeClass().addClass('invalid');
+  }
+
+}
+/**
+ * Update the cvc input field's css classes based on input's validity
+ * @function cvcValidUi
+  * @param {Boolean} isValid - true if cvc input is valid
+  * @returns {Array} - array of strings that are the error classes to be added
+ */
+function cvcValidUi(errs) {
+  var elements = $('#cvvDiv, #cvv,#cvvLabelBefore,#cvvNumberLabelAfter,#cvvLabelText')
+  elements.removeClass();
+
+  if (errs.length == 0) {
+    elements.addClass('valid');
+  }
+  else {
+    for (var i =0; i< errs.length; i++){
+      elements.addClass( errs[i] );
+    }
+    elements.addClass("invalid");
+  }
+};

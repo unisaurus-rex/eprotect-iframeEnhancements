@@ -13,9 +13,8 @@
  */
 
 // Length constants 
-var minLength = 7;
-
-
+var MIN_LENGTH = 13;
+var MAX_LENGTH = 19;
 
 /***** Validation Helpers *****/
 // NOTE: As these are helpers they assume that the pan input is a string, and the string length > 0 
@@ -26,7 +25,11 @@ var minLength = 7;
  * @function mod10 
  * @returns {Boolean} return true if the pan passes the mod10 check
  */
-function mod10(pan) {
+function isMod10(pan) {
+  // make sure pan isn't empty
+  if(pan.length == 0) {
+    return false;
+  }
   // split the pan so we can work with each digit
   var splitPan = pan.split('');
 
@@ -50,10 +53,19 @@ function mod10(pan) {
 /**
  * @function panShort 
  * @param {String} pan
- * @returns {Boolean} true if the length of pan < minLength 
+ * @returns {Boolean} true if the length of pan < MIN_LENGTH 
  */
 function panShort(pan) {
-  return pan.length < minLength;
+  return pan.length < MIN_LENGTH;
+}
+
+/**
+ * @function panLong
+ * @param {String} pan
+ * @returns {Boolean} true if the length of pan > MAX_LENGTH 
+ */
+function panLong(pan) {
+  return pan.length > MAX_LENGTH;
 }
 
 /**
@@ -61,12 +73,12 @@ function panShort(pan) {
  * @param {String} pan
  * @returns {Boolean} return true if the pan contains non-numeric characters
  */
-function panNotNumeric(pan) {
-  // regex that matches any runs of non-numeric characters 
-  var re = /\D+/;
-  return re.test(pan); 
-  
-}
+//function panNotNumeric(pan) {
+//  // regex that matches 1 or non-numeric character 
+//  var re = /\D+/;
+//  return re.test(pan); 
+  //
+//}
 
 
 /**

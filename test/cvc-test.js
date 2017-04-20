@@ -88,23 +88,23 @@ describe('CVC Validation', function() {
     });
   });
 
-  describe('cvcNumericCheck', function() {
+  describe('cvcNotNumeric', function() {
     var cvcs = {
-      '123': true,
-      '23!': false,
-      '@23': false,
-      '1#3': false,
-      'a23': false,
-      '1b3': false,
-      '12c': false,
-      '1565': true,
-      '+23': false,
-      '12+': false
+      '123': false,
+      '23!': true,
+      '@23': true,
+      '1#3': true,
+      'a23': true,
+      '1b3': true,
+      '12c': true,
+      '1565': false,
+      '+23': true,
+      '12+': true
     };
 
     Object.keys(cvcs).forEach(function(cvc) {
       it('should detect ' + cvc + ' as ' + cvcs[cvc], function() {
-        cvcNumericCheck(cvc).should.equal(cvcs[cvc]);
+        cvcNotNumeric(cvc).should.equal(cvcs[cvc]);
       });
     });
   });
@@ -137,7 +137,7 @@ describe('CVC Validation', function() {
     });
   });
 
-  describe('cvcUnderLength', function() {
+  describe('cvcShort', function() {
     var cvcUnderTest = {
       '12': {pan: 4916338506082832, card: "visa", result: true},
       '1223': {pan: 4916338506082832, card: "visa", result: false},
@@ -153,13 +153,13 @@ describe('CVC Validation', function() {
       it( "should return " + cvcUnderTest[string].result + " given " +string + ' with card ' + cvcUnderTest[string].card 
         + " (cvc should be length " + getCvcLengthByCardType( cvcUnderTest[string].card ) + ")", 
         function() {
-          cvcUnderLength(cvcUnderTest[string].pan, string).should.equal(cvcUnderTest[string].result);
+          cvcShort(cvcUnderTest[string].pan, string).should.equal(cvcUnderTest[string].result);
         }
       );
     });
   });
 
-  describe('cvcOverLength', function() {
+  describe('cvcLong', function() {
     var cvcOverTest = {
       '1223': {pan: 4916338506082832, card: "visa", result: true},
       '122': {pan: 4916338506082832, card: "visa", result: false},
@@ -175,7 +175,7 @@ describe('CVC Validation', function() {
       it( "should return "+ cvcOverTest[string].result + " given " +string + ' with card ' + cvcOverTest[string].card 
         + " (cvc should be length " + getCvcLengthByCardType( cvcOverTest[string].card ) + ")", 
         function() {
-          cvcOverLength(cvcOverTest[string].pan, string).should.equal(cvcOverTest[string].result);
+          cvcLong(cvcOverTest[string].pan, string).should.equal(cvcOverTest[string].result);
         }
       );
     });
